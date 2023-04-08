@@ -1,14 +1,114 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://bibhuraushan.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bibhuraushan.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-08T07:36:08+00:00</updated><id>https://bibhuraushan.github.io/feed.xml</id><title type="html">blank</title><subtitle>You will be looking at the personal page of Bibhuti Kumar Jha.
-</subtitle><entry><title type="html">The Chronicle of Great Conjunction 2020</title><link href="https://bibhuraushan.github.io/blog/2020/first/" rel="alternate" type="text/html" title="The Chronicle of Great Conjunction 2020" /><published>2020-12-29T19:20:00+00:00</published><updated>2020-12-29T19:20:00+00:00</updated><id>https://bibhuraushan.github.io/blog/2020/first</id><content type="html" xml:base="https://bibhuraushan.github.io/blog/2020/first/"><![CDATA[<div style="text-align: justify">
-In 1623, two of the giant planets of our solar system, Jupiter and Saturn travelled close to each other across the sky. Jupiter caught up to the pace and overtook Saturn, in an astronomical event known as The Great Conjunction. After that, these two planets appear to cross each other, with the positions of Jupiter and Saturn being aligned in the sky about once every 20 years. If they come close to each other every 20 years then what makes this year’s spectacle so rare? The event is interesting this year because it has been more than 400 years since the planets passed so close to each other. Moreover, it has been around 800 years since this alignment happened at night making it favourable to watch with naked eyes. This year it was more special as it occurred on the date of the winter solstice (the longest night of the year).  Henry Throop, an astronomer in the Planetary Science Division at NASA writes about this event  “You can imagine the solar system to be a racetrack, with each of the planets as a runner in their own lane and the Earth towards the centre of the stadium. From our vantage point, we’ll be able to see Jupiter on the inside lane, approaching Saturn all month and finally overtaking it on December 21.”
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://bibhuraushan.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://bibhuraushan.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-04-08T08:14:58+00:00</updated><id>https://bibhuraushan.github.io/feed.xml</id><title type="html">blank</title><subtitle>You will be looking at the personal page of Bibhuti Kumar Jha.
+</subtitle><entry><title type="html">The Chronicle of Great Conjunction 2020</title><link href="https://bibhuraushan.github.io/blog/2020/astrophotography/" rel="alternate" type="text/html" title="The Chronicle of Great Conjunction 2020" /><published>2020-12-29T19:20:00+00:00</published><updated>2020-12-29T19:20:00+00:00</updated><id>https://bibhuraushan.github.io/blog/2020/astrophotography</id><content type="html" xml:base="https://bibhuraushan.github.io/blog/2020/astrophotography/"><![CDATA[<div style="text-align: justify">
+In 1623, two of the giant planets of our solar system, Jupiter and Saturn travelled close to each other across the sky. Jupiter caught up to the pace and overtook Saturn, in an astronomical event known as The Great Conjunction. After that, these two planets appear to cross each other, with the positions of Jupiter and Saturn being aligned in the sky about once every 20 years. If they come close to each other every 20 years then what makes this year’s spectacle so rare? The event is interesting this year because it has been more than 400 years since the planets passed so close to each other. Moreover, it has been around 800 years since this alignment happened at night making it favourable to watch with naked eyes. This year it was more special as it occurred on the date of the winter solstice (the longest night of the year).  Henry Throop, an astronomer in the Planetary Science Division at NASA writes about this event 
+<blockquote>
+You can imagine the solar system to be a racetrack, with each of the planets as a runner in their own lane and the Earth towards the centre of the stadium. From our vantage point, we’ll be able to see Jupiter on the inside lane, approaching Saturn all month and finally overtaking it on December 21.
+</blockquote>
+<hr />
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/jupyter_saturn_combined-480.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/jupyter_saturn_combined-800.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/jupyter_saturn_combined-1400.webp" />
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/jupyter_saturn_combined.jpg" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="example image" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+
+  </picture>
+
+</figure>
+
+    </div>
+
+<hr />
+<div style="text-align: justify">
 Being daytime astronomers, we rarely get a chance to look at the night sky with a telescope but still, it is impossible to resist ourselves from gazing at the immense beauty of the night sky. Every time we look at the night sky we not only see the beauty and the vastness of the universe but at the same time we are fascinated by Physics and Mathematics which make it a lot more beautiful than what we see through our eyes. Hence, we thought to record this event, The Great Conjunction, with our tiny light-gathering device (camera). We started observing Jupiter and Saturn every evening on December 15, 2020, and with every passing evening, our excitement for this event escalated. Finally, the day had arrived. And then like every good movie we encountered a ‘but’. We were down on our luck on this day as it was cloudy since morning. One thing I like about the astronomers is that they are optimistic, and so we were too.  Finally, the long wait was over and we could see the two planets, Jupiter and Saturn, peeking out of the clouds in a romantic tale. It appeared that they didn't want to be noticed or looked at, and so they played hide and seek behind the clouds. We were stubborn too, still dared to look at their closeness with our wide-open eyes and trying to capture it, had the better of luck finally, as we were able to capture their intimacy with our camera. For most of the astronomers and photographers, that marked the end but we kept our enthusiasm to keep our eyes on them even after The Great Conjunction. We kept on observing them till December 27, 2020, when they were widely separated, only to wait for another 400 years for their re-conjunction.
 
 </div>
-<p><strong>Details about the images:</strong></p>
 
-<ul>
-  <li>No of Days: 13 days (Dec 15 to Dec 27, 2020) at ~19:00 IST</li>
-  <li>Camera: Nikon D3500, 300 mm f/6.3, ISO 1600, Exposure 4 X 1 sec</li>
-  <li>Software used: Sequator and Adobe Photoshop</li>
-  <li>Captured from: ARIES, Nainital</li>
-</ul>]]></content><author><name></name></author><category term="sample-posts" /><category term="astrophotography" /><category term="links" /><summary type="html"><![CDATA[march & april, looking forward to summer]]></summary></entry></feed>
+**Details about the images:**
+
+- No of Days: 13 days (Dec 15 to Dec 27, 2020) at ~19:00 IST
+- Camera: Nikon D3500, 300 mm f/6.3, ISO 1600, Exposure 4 X 1 sec
+- Software used: Sequator and Adobe Photoshop
+- Captured from: ARIES, Nainital
+<hr />
+
+</div></div>]]></content><author><name></name></author><category term="sample-posts" /><category term="astrophotography" /><category term="code" /><summary type="html"><![CDATA[march & april, looking forward to summer]]></summary></entry><entry><title type="html">Another Test</title><link href="https://bibhuraushan.github.io/blog/2015/travel/" rel="alternate" type="text/html" title="Another Test" /><published>2015-07-15T15:09:00+00:00</published><updated>2015-07-15T15:09:00+00:00</updated><id>https://bibhuraushan.github.io/blog/2015/travel</id><content type="html" xml:base="https://bibhuraushan.github.io/blog/2015/travel/"><![CDATA[<p>This theme implements a built-in Jekyll feature, the use of Rouge, for syntax highlighting.
+It supports more than 100 languages.
+This example is in C++.
+All you have to do is wrap your code in markdown code tags:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">c++
+</span><span class="n">code</span> <span class="n">code</span> <span class="n">code</span>
+<span class="p">```</span>
+</code></pre></div></div>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="err">\</span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">myString</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"input a string: "</span><span class="p">;</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">myString</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">myString</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+
+    <span class="kt">char</span> <span class="n">charArray</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span> <span class="o">*</span> <span class="p">[</span><span class="n">length</span><span class="p">];</span>
+
+    <span class="n">charArray</span> <span class="o">=</span> <span class="n">myString</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">charArray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>By default, it does not display line numbers. If you want to display line numbers for every code block, you can set <code class="language-plaintext highlighter-rouge">kramdown.syntax_highlighter_opts.block.line_numbers</code> to true in your <code class="language-plaintext highlighter-rouge">_config.yml</code> file.</p>
+
+<p>If you want to display line numbers for a specific code block, all you have to do is wrap your code in a liquid tag:</p>
+
+<p>{% highlight c++ linenos %}  <br /> code code code <br /> {% endhighlight %}</p>
+
+<p>The keyword <code class="language-plaintext highlighter-rouge">linenos</code> triggers display of line numbers.
+Produces something like this:</p>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="err">\</span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="n">string</span> <span class="n">myString</span><span class="p">;</span>
+
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"input a string: "</span><span class="p">;</span>
+    <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">myString</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">myString</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+
+    <span class="kt">char</span> <span class="n">charArray</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span> <span class="o">*</span> <span class="p">[</span><span class="n">length</span><span class="p">];</span>
+
+    <span class="n">charArray</span> <span class="o">=</span> <span class="n">myString</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">charArray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure>]]></content><author><name></name></author><category term="sample-posts" /><category term="astrophotography" /><category term="link" /><summary type="html"><![CDATA[Test Post]]></summary></entry></feed>
