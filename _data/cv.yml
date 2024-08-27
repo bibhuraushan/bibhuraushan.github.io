@@ -31,16 +31,14 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Postdoctoral Resercher
-      institution: Southwest Research Institute, Boulder, CO, USA 
-      year: 2023 - 
-      # description:
-      #   - Description 1.
-      #   - Description 2.
-      #   - title: Description 3.
-      #     contents:
-      #       - Sub-description 1.
-      #       - Sub-description 2.
+    - title: Postdoctoral Researcher
+      institution: Southwest Research Institute, Boulder, CO, USA
+      year: 2023 -
+
+    - title: Researcher
+      institution: Frontier Development Lab, USA
+      year: 2024 - 2024
+
     - title: Senior Research Fellow
       institution: Aryabhatta Research Institute of Observational Sciences (ARIES), Nainital, India
       year: 2020-2022
@@ -56,34 +54,35 @@
 - title: Open Source Projects
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: <a href="https://bibhuraushan.github.io/aftpy/">AFTpy</a>
+      year: 2023-now
+      description: A comprehensive solution for analyzing and downloading Advective Flux Transport (AFT) data.
 
-# - title: Honors and Awards
-#   type: time_table
-#   contents:
-#     - year: 1921
-#       items: 
-#         - Nobel Prize in Physics 
-#         - Matteucci Medal
-#     - year: 2029
-#       items: 
-#         - Max Planck Medal
+- title: Honors and Awards
+  type: time_table
+  contents:
+    - year: 2018
+      items:
+        - CSIR Junior Research Fellowship
+    - year: 2023
+      items:
+        - Thomas Metcalf Travel Awards
 
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
-      items: 
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+    - title: Sun and Solar Cycle Variabilities
       items:
-        - Description 1.
-        - Description 2.
+        - Surface Flux Transport
+        - Solar Cycle Prediction
+    - title: Data
+      items:
+        - Data Analysis
+        - Data Visualization
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - Cricket
+    - Photography
+    - Hiking
