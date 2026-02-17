@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bibhuti Kumar Jha</title>
+    <meta
+      name="description"
+      content="Solar physicist. Surface flux transport, solar cycle, data-driven heliophysics."
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="icon" href="img/profile.jpg" />
+  </head>
+
+  <body data-page="home">
+    <!-- Background accents -->
+    <div class="bg">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="grain"></div>
+    </div>
+
+    <!-- Top nav -->
+    <header class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html" aria-label="Home">
+          <span class="brand-mark"></span>
+          <span class="brand-text">Bibhuti Kumar Jha</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a class="active" href="index.html">Home</a>
+          <a href="publications.html">Publications</a>
+          <a href="cv.html">CV</a>
+          <a href="repositories.html">Code</a>
+          <a href="articles.html">Writing</a>
+          <a href="travel.html">Travel</a>
+          <a href="photography.html">Photography</a>
+
+          <button class="theme-btn" id="themeToggle" type="button">
+            <span class="theme-icon">☀︎</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <!-- Left: headline -->
+          <div class="hero-left">
+            <!-- <div class="pill">
+              <span class="dot"></span>
+              <span>Solar physicist • Data-driven heliophysics</span>
+            </div> -->
+
+            <!-- <h1 class="title"> -->
+            <div class="hero-content">
+              <h1 class="hero-title">
+                <span class="title-name">
+                  <span class="title-strong">Bibhuti</span>
+                  <span class="title-soft"> Kumar Jha</span>
+                </span>
+              </h1>
+            </div>
+            <!-- </h1> -->
+
+            <div class="whoami whoami-card">
+              <div class="whoami-accent" aria-hidden="true"></div>
+              <h2 class="whoami-title">
+                My Journey: From a Village in Bihar to Solar Physics
+              </h2>
+              <p class="whoami-text">
+                I was born in the village of Sarisab-Pahi in the Madhubani
+                district of Bihar, where I completed my early education before
+                moving to Delhi to pursue Physics (Honors) at Dyal Singh
+                College, University of Delhi. I later earned my master’s degree
+                from the Department of Physics and Astrophysics, University of
+                Delhi.
+              </p>
+
+              <p class="whoami-text">
+                In 2017, I joined the Indian Institute of Astrophysics as a
+                Ph.D. student and was awarded the CSIR-JRF fellowship. My
+                doctoral research focused on solar astrophysics under the
+                guidance of Prof. Dipankar Banerjee. I completed my Ph.D. in
+                2022 (IIA & Pondicherry University), during which I received
+                international research support, including participation in
+                NASA’s Heliophysics Summer School in Boulder.
+              </p>
+
+              <p class="whoami-text">
+                Currently, I am a Research Scientist at the Southwest Research
+                Institute (SwRI), Boulderm CO, USA. My research centers on
+                understanding the solar cycle and its impact on Earth from a
+                space-weather perspective, with the goal of improving our
+                ability to model and predict solar-driven disturbances that
+                affect modern technological systems.
+              </p>
+            </div>
+
+            <div class="cta">
+              <a class="btn primary" href="publications.html">
+                <span>Publications</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="btn primary" href="cv.html">
+                <span> View CV</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+              <!-- <a class="btn ghost" href="#contact">Contact</a> -->
+            </div>
+
+            <div class="mini">
+              <div class="mini-card">
+                <div class="mini-k">Focus</div>
+                <div class="mini-v">Solar cycle • SFT • Synoptic maps</div>
+              </div>
+              <div class="mini-card">
+                <div class="mini-k">Tooling</div>
+                <div class="mini-v">Python • HDF5 • Visualization</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: portrait + highlights -->
+          <aside class="hero-right">
+            <div class="portrait-card">
+              <div class="portrait">
+                <img
+                  src="img/profile.jpg"
+                  alt="Portrait of Bibhuti Kumar Jha"
+                  loading="eager"
+                />
+              </div>
+
+              <div class="portrait-meta">
+                <div class="name">Bibhuti Kumar Jha</div>
+                <div class="meta">Research Scientist • SwRI • Boulder, CO</div>
+
+                <div class="links">
+                  <a class="chip" href="mailto:YOUR_EMAIL">Email</a>
+                  <a
+                    class="chip"
+                    href="https://github.com/bibhuraushan"
+                    target="_blank"
+                    rel="noopener"
+                    >GitHub</a
+                  >
+                  <a
+                    class="chip"
+                    href="https://scholar.google.com"
+                    target="_blank"
+                    rel="noopener"
+                    >Scholar</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="glass-card hi-card">
+              <div class="card-head">
+                <h2>Featured</h2>
+                <!-- <span class="muted">In the news</span> -->
+              </div>
+
+              <div class="hi-grid-compact" id="hiGrid">
+                <div class="muted">Loading highlights…</div>
+              </div>
+            </div>
+
+            <script src="assets/js/highlights.js"></script>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Featured sections -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Featured</h2>
+            <p class="muted">A few entry points to my work</p>
+          </div>
+
+          <div class="cards3">
+            <a class="card" href="publications.html">
+              <div class="card-icon">✦</div>
+              <h3>Selected publications</h3>
+              <p>Peer-reviewed work and preprints.</p>
+              <span class="card-link">Explore →</span>
+            </a>
+
+            <a class="card" href="repositories.html">
+              <div class="card-icon">⌘</div>
+              <h3>Code & repositories</h3>
+              <p>Tools, data pipelines, and utilities.</p>
+              <span class="card-link">Browse →</span>
+            </a>
+
+            <a class="card" href="articles.html">
+              <div class="card-icon">✎</div>
+              <h3>Writing</h3>
+              <p>Notes on solar data, methods, and workflows.</p>
+              <span class="card-link">Read →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section" id="contact">
+        <div class="container contact">
+          <div class="glass-card contact-card">
+            <div>
+              <h2>Let’s connect</h2>
+              <p class="muted">
+                For collaborations, datasets, or tools — send a note.
+              </p>
+            </div>
+
+            <div class="contact-actions">
+              <a class="btn primary" href="mailto:YOUR_EMAIL">Email me</a>
+              <a class="btn" href="cv.html">CV</a>
+              <a class="btn ghost" href="repositories.html">Code</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="muted">© <span id="year"></span> Bibhuti Kumar Jha</div>
+        <div class="muted">Hosted on GitHub Pages</div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

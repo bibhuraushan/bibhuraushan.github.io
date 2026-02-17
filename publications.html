@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Publications • Bibhuti Kumar Jha</title>
+    <meta
+      name="description"
+      content="Publications of Bibhuti Kumar Jha — loaded from JSON."
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body data-page="publications" data-pubs-json="data/publications.json">
+    <!-- Background accents -->
+    <div class="bg">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="grain"></div>
+    </div>
+
+    <!-- Top nav (same as home) -->
+    <header class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html" aria-label="Home">
+          <span class="brand-mark"></span>
+          <span class="brand-text">Bibhuti</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a class="active" href="publications.html">Publications</a>
+          <a href="cv.html">CV</a>
+          <a href="repositories.html">Code</a>
+          <a href="articles.html">Writing</a>
+          <a href="travel.html">Travel</a>
+          <a href="photography.html">Photography</a>
+
+          <button
+            class="theme-btn"
+            id="themeToggle"
+            type="button"
+            title="Toggle theme"
+            aria-label="Toggle theme"
+          >
+            <span class="theme-icon" aria-hidden="true">◐</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Header -->
+      <section class="section">
+        <div class="container">
+          <div class="glass-card pub-hero">
+            <div class="pub-hero-left">
+              <div class="pill">
+                <span class="dot"></span>
+                <span>Papers • Preprints</span>
+              </div>
+
+              <h1 class="pub-h1">Publications</h1>
+              <p class="pub-lead">
+                A curated collection of scholarly work in
+                <span class="pub-em">solar and heliophysics research</span>,
+                spanning theory, data analysis, and modeling.
+              </p>
+
+              <div class="pub-controls">
+                <div class="pub-field">
+                  <label class="pub-label" for="yearSelect">Year</label>
+                  <select
+                    id="yearSelect"
+                    class="pub-select"
+                    aria-label="Select year"
+                  ></select>
+                </div>
+
+                <div class="pub-field grow">
+                  <label class="pub-label" for="searchBox">Search</label>
+                  <input
+                    id="searchBox"
+                    class="pub-input"
+                    type="search"
+                    placeholder="Search Title / Author / Journal / Tags…"
+                  />
+                </div>
+
+                <div class="pub-field">
+                  <label class="pub-label">&nbsp;</label>
+                  <button id="clearSearch" class="btn ghost" type="button">
+                    Clear
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <aside class="pub-hero-right">
+              <div class="glass-card pub-stat">
+                <div class="pub-stat-total">
+                  <span id="count">0</span>
+                  <span class="pub-stat-word">Publications</span>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- List -->
+      <section class="section tight">
+        <div class="container">
+          <div class="glass-card pub-panel">
+            <div id="pubList"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="muted">© <span id="year"></span> Bibhuti Kumar Jha</div>
+        <div class="muted">Hosted on GitHub Pages</div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/publications.js"></script>
+  </body>
+</html>
