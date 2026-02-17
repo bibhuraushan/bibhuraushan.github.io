@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CV • Bibhuti Kumar Jha</title>
+    <meta name="description" content="Web CV — Bibhuti Kumar Jha" />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/cv.css" />
+  </head>
+
+  <body data-page="cv">
+    <div class="bg">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="grain"></div>
+    </div>
+
+    <header class="nav">
+      <div class="container nav-inner">
+        <a class="brand" href="index.html" aria-label="Home">
+          <span class="brand-mark"></span>
+          <span class="brand-text">Bibhuti</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="publications.html">Publications</a>
+          <a class="active" href="cv.html">CV</a>
+          <a href="repositories.html">Code</a>
+          <a href="articles.html">Writing</a>
+          <a href="travel.html">Travel</a>
+          <a href="photography.html">Photography</a>
+
+          <button
+            class="theme-btn"
+            id="themeToggle"
+            type="button"
+            title="Toggle theme"
+            aria-label="Toggle theme"
+          >
+            <span class="theme-icon" aria-hidden="true">◐</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="glass-card cvl-shell">
+            <!-- LEFT SIDEBAR -->
+            <aside class="cvl-side">
+              <div class="cvl-id">
+                <!-- Top title -->
+                <!-- <div class="cvl-cvtitle">
+                  <div class="cvl-cvtitle-big">Curriculum Vitae</div>
+                  <div class="cvl-cvtitle-sub muted">Web version</div>
+                </div> -->
+
+                <!-- Middle identity block -->
+                <div class="cvl-identity">
+                <div class="cvl-nameblock">
+                    <div class="cvl-person">Bibhuti Kumar Jha, PhD</div>
+                    <div class="cvl-role">Research Scientist</div>
+                    <div class="cvl-inst">SwRI, Boulder, CO 80302, USA</div>
+                </div>
+                </div>
+
+              <nav class="cvl-tabs" aria-label="CV sections">
+                <button class="cvl-tab active" type="button" data-tab="about">
+                  <span class="cvl-tab-ic">⟡</span><span>About Me</span>
+                </button>
+                <button class="cvl-tab" type="button" data-tab="experience">
+                  <span class="cvl-tab-ic">⌁</span><span>Experience</span>
+                </button>
+                <button class="cvl-tab" type="button" data-tab="education">
+                  <span class="cvl-tab-ic">⌂</span><span>Education</span>
+                </button>
+                <button class="cvl-tab" type="button" data-tab="research">
+                  <span class="cvl-tab-ic">✦</span><span>Research</span>
+                </button>
+                <button class="cvl-tab" type="button" data-tab="toolbox">
+                  <span class="cvl-tab-ic">⚙︎</span><span>Toolbox</span>
+                </button>
+                <button class="cvl-tab" type="button" data-tab="talks">
+                  <span class="cvl-tab-ic">✧</span><span>Talks</span>
+                </button>
+                <button class="cvl-tab" type="button" data-tab="service">
+                  <span class="cvl-tab-ic">☍</span><span>Service</span>
+                </button>
+              </nav>
+
+              <div class="cvl-mini">
+                <div class="cvl-mini-row">
+                  <div class="cvl-k">Now</div>
+                  <div class="cvl-v">SwRI • Boulder, CO</div>
+                </div>
+                <div class="cvl-mini-row">
+                  <div class="cvl-k">Email</div>
+                  <div class="cvl-v">
+                    <a class="cvl-link" href="mailto:bibhuti.jha@swri.org"
+                      >bibhuti.jha@swri.org</a
+                    >
+                  </div>
+                </div>
+                <div class="cvl-mini-row">
+                  <div class="cvl-k">Links</div>
+                  <div class="cvl-v cvl-links">
+                    <a class="cvl-link" href="#" target="_blank" rel="noopener"
+                      >Scholar</a
+                    >
+                    <a class="cvl-link" href="#" target="_blank" rel="noopener"
+                      >ADS</a
+                    >
+                    <a class="cvl-link" href="#" target="_blank" rel="noopener"
+                      >ORCID</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </aside>
+
+            <!-- RIGHT CONTENT -->
+            <section class="cvl-main">
+              <!-- TOP BAR -->
+              <div class="cvl-top">
+                <div class="cvl-header">
+                    <div class="cvl-header-title">Curriculum Vitae</div>
+                    <div class="cvl-header-sub muted">Academic profile & Research overview</div>
+                </div>
+            </div>
+              <!-- PANE: OVERVIEW -->
+              <div class="cvl-pane active" id="tab-about">
+                <div class="cvl-pane-head">
+                  <h2>About Me</h2>
+                  <p class="muted">A quick snapshot, optimized for the web.</p>
+                </div>
+
+                <div class="cvl-grid2">
+                  <div class="glass-card cvl-card">
+                    <h3 class="cvl-h3">What I work on</h3>
+                    <p class="cvl-p">
+                      I build models and datasets that connect observations to
+                      solar-cycle physics: surface flux transport (AFT/SFT),
+                      active-region emergence, and full-Sun magnetic
+                      reconstructions.
+                    </p>
+                    <div class="cvl-chips">
+                      <span class="tag">Solar cycle variability</span>
+                      <span class="tag">Full-Sun magnetic maps</span>
+                      <span class="tag">Polar fields</span>
+                      <span class="tag">Far-side ARs</span>
+                    </div>
+                  </div>
+
+                  <div class="glass-card cvl-card">
+                    <h3 class="cvl-h3">How I work</h3>
+                    <ul class="cvl-list">
+                      <li>
+                        Build robust, reproducible data pipelines for solar
+                        archives.
+                      </li>
+                      <li>
+                        Validate models with multi-observatory comparisons and
+                        uncertainty checks.
+                      </li>
+                      <li>
+                        Design ML-ready products for analysis and forecasting
+                        workflows.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="glass-card cvl-card cvl-cta">
+                  <div>
+                    <h3 class="cvl-h3">Publications are live & searchable</h3>
+                    <p class="muted">
+                      JSON-backed list with year filter, search, and links.
+                    </p>
+                  </div>
+                  <div class="cvl-actions">
+                    <a class="btn primary" href="publications.html"
+                      >Open Publications</a
+                    >
+                    <a class="btn" href="repositories.html">Browse Code</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PANE: EXPERIENCE -->
+              <div class="cvl-pane" id="tab-experience">
+                <div class="cvl-pane-head">
+                  <h2>Experience</h2>
+                  <p class="muted">Roles and impact</p>
+                </div>
+
+                <div class="glass-card cvl-card">
+                  <div class="cvl-timeline">
+                    <div class="cvl-titem">
+                      <div class="cvl-tdot"></div>
+                      <div class="cvl-tbody">
+                        <div class="cvl-ttitle">
+                          <strong>Research Scientist</strong>
+                          <span class="muted">— SwRI (Boulder, CO)</span>
+                        </div>
+                        <div class="cvl-tmeta muted">Oct 2024 – Present</div>
+                        <ul class="cvl-list">
+                          <li>
+                            Historical reconstruction of solar surface magnetism
+                            using SARG + AFT.
+                          </li>
+                          <li>
+                            Cross-calibration of magnetograms and ML-ready data
+                            products.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="cvl-titem">
+                      <div class="cvl-tdot"></div>
+                      <div class="cvl-tbody">
+                        <div class="cvl-ttitle">
+                          <strong>Postdoctoral Researcher</strong>
+                          <span class="muted">— SwRI (Boulder, CO)</span>
+                        </div>
+                        <div class="cvl-tmeta muted">Jan 2023 – Sep 2024</div>
+                        <ul class="cvl-list">
+                          <li>
+                            AFT/SFT modeling; far-side active region integration
+                            and validation.
+                          </li>
+                          <li>
+                            Comparisons to synoptic maps and polar field
+                            diagnostics.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="cvl-titem">
+                      <div class="cvl-tdot"></div>
+                      <div class="cvl-tbody">
+                        <div class="cvl-ttitle">
+                          <strong>Researcher</strong>
+                          <span class="muted"
+                            >— Frontier Development Lab (FDL), USA</span
+                          >
+                        </div>
+                        <div class="cvl-tmeta muted">Jun 2024 – Aug 2024</div>
+                        <ul class="cvl-list">
+                          <li>
+                            ML workflows and rapid prototyping for heliophysics
+                            applications.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="cvl-titem">
+                      <div class="cvl-tdot"></div>
+                      <div class="cvl-tbody">
+                        <div class="cvl-ttitle">
+                          <strong>PTSF / SRF / JRF</strong>
+                          <span class="muted">— ARIES & IIA</span>
+                        </div>
+                        <div class="cvl-tmeta muted">2017 – 2022</div>
+                        <ul class="cvl-list">
+                          <li>
+                            Long-term solar variability; observational and
+                            modeling studies.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PANE: EDUCATION -->
+              <div class="cvl-pane" id="tab-education">
+                <div class="cvl-pane-head">
+                  <h2>Education</h2>
+                  <p class="muted">Degrees & thesis</p>
+                </div>
+
+                <div class="cvl-grid2">
+                  <div class="glass-card cvl-card">
+                    <h3 class="cvl-h3">PhD (Physics)</h3>
+                    <p class="muted">
+                      Indian Institute of Astrophysics (IIA), Bangalore •
+                      Pondicherry University
+                    </p>
+                    <div class="cvl-kv">
+                      <div><span class="cvl-k2">Years:</span> 2017 – 2022</div>
+                      <div>
+                        <span class="cvl-k2">Thesis:</span> Long-term study of
+                        the Sun and its implications to solar dynamo models
+                      </div>
+                      <div>
+                        <span class="cvl-k2">Supervisor:</span> Prof. Dipankar
+                        Banerjee
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="glass-card cvl-card">
+                    <h3 class="cvl-h3">M.Sc. (Hons) Physics</h3>
+                    <p class="muted">
+                      Hindu College, University of Delhi • 2014 – 2016
+                    </p>
+                    <hr class="cvl-sep" />
+                    <h3 class="cvl-h3">B.Sc. (Hons) Physics</h3>
+                    <p class="muted">
+                      Dyal Singh College, University of Delhi • 2011 – 2014
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PANE: RESEARCH -->
+              <div class="cvl-pane" id="tab-research">
+                <div class="cvl-pane-head">
+                  <h2>Research</h2>
+                  <p class="muted">Themes & directions</p>
+                </div>
+
+                <div class="cvl-grid2">
+                  <div class="glass-card cvl-card">
+                    <h3 class="cvl-h3">Current directions</h3>
+                    <ul class="cvl-list">
+                      <li>
+                        Reconstruction of solar surface magnetism (Cycles 1–24).
+                      </li>
+                      <li>
+                        Full-Sun magnetic maps with far-side information
+                        integration.
+                      </li>
+                      <li>Polar field evolution and reversal timing.</li>
+                    </ul>
+                  </div>
+
+                  <div class="glass-card cvl-card">
+                    <h3 class="cvl-h3">Methods</h3>
+                    <div class="cvl-chips">
+                      <span class="tag">AFT / SFT</span>
+                      <span class="tag">Synoptic maps</span>
+                      <span class="tag">UQ</span>
+                      <span class="tag">Cross-calibration</span>
+                      <span class="tag">Feature detection</span>
+                      <span class="tag">ML pipelines</span>
+                    </div>
+                    <div class="cvl-note muted">
+                      Publications stay on the dedicated page to keep this web
+                      CV fast and readable.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PANE: TOOLBOX -->
+              <div class="cvl-pane" id="tab-toolbox">
+                <div class="cvl-pane-head">
+                  <h2>Toolbox</h2>
+                  <p class="muted">What I use daily</p>
+                </div>
+
+                <div class="glass-card cvl-card">
+                  <div class="cvl-skillgrid">
+                    <div class="cvl-skill">
+                      <div class="cvl-skill-h">Programming</div>
+                      <div class="cvl-skill-b">
+                        <span class="tag">Python</span
+                        ><span class="tag">Fortran</span
+                        ><span class="tag">Bash</span
+                        ><span class="tag">Git</span>
+                      </div>
+                    </div>
+                    <div class="cvl-skill">
+                      <div class="cvl-skill-h">Scientific stack</div>
+                      <div class="cvl-skill-b">
+                        <span class="tag">NumPy</span
+                        ><span class="tag">SciPy</span
+                        ><span class="tag">Astropy</span
+                        ><span class="tag">SunPy</span
+                        ><span class="tag">h5py</span>
+                      </div>
+                    </div>
+                    <div class="cvl-skill">
+                      <div class="cvl-skill-h">Data & viz</div>
+                      <div class="cvl-skill-b">
+                        <span class="tag">FITS</span
+                        ><span class="tag">HDF5</span
+                        ><span class="tag">Matplotlib</span
+                        ><span class="tag">Dashboards</span>
+                      </div>
+                    </div>
+                    <div class="cvl-skill">
+                      <div class="cvl-skill-h">ML</div>
+                      <div class="cvl-skill-b">
+                        <span class="tag">PyTorch</span
+                        ><span class="tag">Feature extraction</span
+                        ><span class="tag">Pipelines</span
+                        ><span class="tag">Evaluation</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PANE: TALKS -->
+              <div class="cvl-pane" id="tab-talks">
+                <div class="cvl-pane-head">
+                  <h2>Talks</h2>
+                  <p class="muted">Selected talks and presentations</p>
+                </div>
+
+                <div class="glass-card cvl-card">
+                  <ul class="cvl-list">
+                    <li>
+                      <strong
+                        >Integrating Far-Side Active Regions into AFT</strong
+                      >
+                      — Seminar (Year)
+                    </li>
+                    <li>
+                      <strong>Polar Field Reversal Timing</strong> — Conference
+                      (Year)
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- PANE: SERVICE -->
+              <div class="cvl-pane" id="tab-service">
+                <div class="cvl-pane-head">
+                  <h2>Service</h2>
+                  <p class="muted">Community contributions</p>
+                </div>
+
+                <div class="glass-card cvl-card">
+                  <ul class="cvl-list">
+                    <li>Journal reviewer (as applicable).</li>
+                    <li>Workshops, sessions, mentoring (as applicable).</li>
+                    <li>Open-source/data products (as applicable).</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="muted">© <span id="year"></span> Bibhuti Kumar Jha</div>
+        <div class="muted">Hosted on GitHub Pages</div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cv_web.js"></script>
+  </body>
+</html>

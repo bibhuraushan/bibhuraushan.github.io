@@ -1,0 +1,550 @@
+/* cv.css — CV page only (left tabs + pane layout) */
+
+.cvl-shell {
+  padding: 0;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: min(78vh, 880px);
+}
+
+/* Sidebar */
+.cvl-side {
+  padding: 16px;
+  border-right: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  display: grid;
+  gap: 14px;
+}
+
+.cvl-id {
+  display: grid;
+  gap: 10px;
+}
+.cvl-name {
+  margin: 4px 0 0;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+.cvl-tagline {
+  margin: 0;
+}
+
+.cvl-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.cvl-tabs {
+  display: grid;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.cvl-tab {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.cvl-tab:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.cvl-tab.active {
+  color: var(--text);
+  border-color: rgba(139, 92, 246, 0.45);
+  background: rgba(139, 92, 246, 0.14);
+}
+
+.cvl-tab-ic {
+  width: 22px;
+  display: inline-flex;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+/* mini card */
+.cvl-mini {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+}
+
+.cvl-mini-row {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+:root[data-theme="light"] .cvl-mini-row {
+  border-bottom-color: rgba(11, 16, 32, 0.1);
+}
+.cvl-mini-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.cvl-k {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 2px;
+}
+
+.cvl-v {
+  color: rgba(234, 240, 255, 0.86);
+  line-height: 1.5;
+}
+:root[data-theme="light"] .cvl-v {
+  color: rgba(11, 16, 32, 0.86);
+}
+
+.cvl-link {
+  color: rgba(234, 240, 255, 0.82);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(234, 240, 255, 0.18);
+}
+.cvl-link:hover {
+  color: rgba(234, 240, 255, 0.95);
+  border-bottom-color: rgba(234, 240, 255, 0.34);
+}
+:root[data-theme="light"] .cvl-link {
+  color: rgba(11, 16, 32, 0.8);
+  border-bottom-color: rgba(11, 16, 32, 0.18);
+}
+:root[data-theme="light"] .cvl-link:hover {
+  color: rgba(11, 16, 32, 0.92);
+  border-bottom-color: rgba(11, 16, 32, 0.32);
+}
+
+.cvl-links {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Main content */
+.cvl-main {
+  padding: 16px;
+  display: grid;
+  gap: 14px;
+  min-height: 70vh;
+}
+
+.cvl-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+:root[data-theme="light"] .cvl-top {
+  border-bottom-color: rgba(11, 16, 32, 0.1);
+}
+
+.cvl-breadcrumb {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cvl-top-actions .btn.small {
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+
+/* Panes */
+.cvl-pane {
+  display: none;
+}
+.cvl-pane.active {
+  display: block;
+}
+
+.cvl-pane-head {
+  margin-bottom: 10px;
+}
+.cvl-pane-head h2 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+.cvl-pane-head p {
+  margin: 6px 0 0;
+}
+
+/* Layout blocks */
+.cvl-grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 980px) {
+  .cvl-grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cvl-card {
+  padding: 14px;
+}
+.cvl-h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  letter-spacing: -0.01em;
+}
+
+.cvl-p {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(234, 240, 255, 0.78);
+}
+:root[data-theme="light"] .cvl-p {
+  color: rgba(11, 16, 32, 0.72);
+}
+
+.cvl-chips {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cvl-list {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+  color: rgba(234, 240, 255, 0.82);
+}
+:root[data-theme="light"] .cvl-list {
+  color: rgba(11, 16, 32, 0.82);
+}
+
+.cvl-note {
+  margin-top: 10px;
+  font-size: 13px;
+}
+.cvl-cta {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Timeline */
+.cvl-timeline {
+  display: grid;
+  gap: 14px;
+}
+.cvl-titem {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 12px;
+}
+.cvl-tdot {
+  width: 10px;
+  height: 10px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+}
+.cvl-ttitle {
+  font-size: 15px;
+}
+.cvl-tmeta {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+/* Education */
+.cvl-kv {
+  margin-top: 8px;
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.cvl-k2 {
+  color: rgba(234, 240, 255, 0.86);
+  font-weight: 700;
+}
+:root[data-theme="light"] .cvl-k2 {
+  color: rgba(11, 16, 32, 0.86);
+}
+
+.cvl-sep {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 14px 0;
+}
+:root[data-theme="light"] .cvl-sep {
+  background: rgba(11, 16, 32, 0.12);
+}
+
+/* Skills */
+.cvl-skillgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 980px) {
+  .cvl-skillgrid {
+    grid-template-columns: 1fr;
+  }
+}
+.cvl-skill {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px;
+}
+.cvl-skill-h {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.cvl-skill-b {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* --- Left sidebar: top title + centered identity --- */
+
+.cvl-side {
+  padding: 24px 18px;
+  border-right: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Identity Card */
+
+/* Identity Card */
+
+.cvl-identity {
+  margin-top: 20px;
+  padding: 18px 16px;
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  backdrop-filter: blur(6px);
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle accent line */
+.cvl-identity::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    rgba(139, 92, 246, 0.8),
+    rgba(139, 92, 246, 0.2)
+  );
+  border-radius: 3px;
+}
+
+/* name */
+.cvl-person {
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* designation */
+.cvl-role {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(139, 92, 246, 0.85);
+}
+
+/* institute */
+.cvl-inst {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* CV title at the top */
+.cvl-cvtitle {
+  padding: 10px 10px 0;
+}
+
+.cvl-cvtitle-big {
+  font-size: 18px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.cvl-cvtitle-sub {
+  margin-top: 6px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.cvl-person {
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+}
+
+.cvl-role {
+  margin-top: 6px;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cvl-inst {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.cvl-tagline {
+  padding: 0 10px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Make sure tabs sit nicely below */
+.cvl-tabs {
+  margin-top: 6px;
+}
+
+/* Top header styling */
+
+/* Top CV header (right panel) */
+
+.cvl-top {
+  /* fixed vertical space reserved */
+  min-height: 92px; /* tune: 80–110px depending on your font sizes */
+  display: flex;
+  align-items: flex-end; /* keeps title/subtitle sitting nicely */
+  padding-bottom: 18px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+:root[data-theme="light"] .cvl-top {
+  border-bottom-color: rgba(11, 16, 32, 0.1);
+}
+
+.cvl-header {
+  width: 100%;
+  display: grid;
+  gap: 6px;
+}
+
+.cvl-header-title {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.cvl-header-sub {
+  font-size: 13px;
+  opacity: 0.85;
+  max-width: 64ch;
+}
+
+.cvl-pane-head {
+  margin-top: 0; /* important: no random top margins */
+}
+
+/* subtle accent underline */
+.cvl-header-title::after {
+  content: "";
+  display: block;
+  margin-top: 8px;
+  width: 60px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(139, 92, 246, 0.85),
+    rgba(139, 92, 246, 0.2)
+  );
+}
+
+.cvl-header-sub {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+}
+
+.cvl-titleblock {
+  display: grid;
+  gap: 6px;
+}
+
+.cvl-title {
+  font-size: 22px;
+  font-weight: 850;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.cvl-subtitle {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+}
+
+/* Responsive: stack sidebar on small screens */
+@media (max-width: 980px) {
+  .cvl-shell {
+    grid-template-columns: 1fr;
+  }
+  .cvl-side {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
