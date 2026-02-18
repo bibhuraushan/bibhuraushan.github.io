@@ -4,16 +4,19 @@
   padding: 0;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 320px 1fr;
-  min-height: min(78vh, 880px);
+  grid-template-columns: 330px 1fr;
+  min-height: min(78vh, 920px);
 }
 
 /* Sidebar */
 .cvl-side {
-  padding: 16px;
+  padding: 18px;
   border-right: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.02);
   display: grid;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start; /* top aligned */
   gap: 14px;
 }
 
@@ -41,7 +44,7 @@
 .cvl-tabs {
   display: grid;
   gap: 8px;
-  margin-top: 2px;
+  margin-top: 8px;
 }
 
 .cvl-tab {
@@ -56,6 +59,8 @@
   background: rgba(255, 255, 255, 0.04);
   color: var(--muted);
   cursor: pointer;
+  font-size: 15px;
+  font-weight: 750;
   transition:
     transform 0.15s ease,
     background 0.15s ease,
@@ -69,8 +74,10 @@
 
 .cvl-tab.active {
   color: var(--text);
-  border-color: rgba(139, 92, 246, 0.45);
-  background: rgba(139, 92, 246, 0.14);
+  font-weight: 800;
+  font-size: 15px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.25);
 }
 
 .cvl-tab-ic {
@@ -145,18 +152,18 @@
 
 /* Main content */
 .cvl-main {
-  padding: 16px;
-  display: grid;
+  padding: 18px;
+  display: flex; /* switch from grid to flex */
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start; /* important */
   gap: 14px;
-  min-height: 70vh;
 }
 
 .cvl-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding-bottom: 10px;
+  margin-top: 18px;
+  margin-bottom: 4px;
+  font-size: 16px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 :root[data-theme="light"] .cvl-top {
@@ -395,7 +402,7 @@
   margin-top: 8px;
   font-size: 12px;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: rgba(139, 92, 246, 0.85);
 }
 
@@ -435,10 +442,10 @@
 }
 
 .cvl-role {
-  margin-top: 6px;
-  font-size: 13px;
+  margin-top: 2px;
+  font-size: 15px;
   letter-spacing: 0.06em;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .cvl-inst {
@@ -504,7 +511,7 @@
   content: "";
   display: block;
   margin-top: 8px;
-  width: 60px;
+  width: 500px;
   height: 3px;
   border-radius: 2px;
   background: linear-gradient(
@@ -547,4 +554,128 @@
     border-right: none;
     border-bottom: 1px solid var(--border);
   }
+}
+
+/* Icon links row */
+.cvl-icons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cvl-icon {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+
+  text-decoration: none;
+  color: rgba(234, 240, 255, 0.82);
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+:root[data-theme="light"] .cvl-icon {
+  color: rgba(11, 16, 32, 0.78);
+  background: rgba(11, 16, 32, 0.03);
+}
+
+.cvl-icon:hover {
+  transform: translateY(-1px);
+  border-color: rgba(139, 92, 246, 0.4);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+/* Subtle “brand tint” on hover (keeps it classy) */
+.cvl-icon.scholar:hover {
+  border-color: rgba(66, 133, 244, 0.45);
+  background: rgba(66, 133, 244, 0.1);
+}
+.cvl-icon.ads:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  background: rgba(56, 189, 248, 0.1);
+}
+.cvl-icon.orcid:hover {
+  border-color: rgba(166, 206, 57, 0.55);
+  background: rgba(166, 206, 57, 0.1);
+}
+.cvl-icon.github:hover {
+  border-color: rgba(148, 163, 184, 0.45);
+  background: rgba(148, 163, 184, 0.1);
+}
+.cvl-icon.linkedin:hover {
+  border-color: rgba(14, 165, 233, 0.55);
+  background: rgba(14, 165, 233, 0.1);
+}
+
+.cvl-icon i {
+  font-size: 16px;
+  line-height: 1;
+}
+/* Icon Row Container */
+.cvl-icon-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* Base icon style */
+.cvl-icon {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+
+  transition: all 0.2s ease;
+}
+
+/* Bigger icon */
+.cvl-icon i {
+  font-size: 20px;
+}
+
+/* Brand Colors */
+.cvl-icon.ads i {
+  color: #38bdf8;
+}
+
+.cvl-icon.scholar i {
+  color: #4285f4;
+}
+
+.cvl-icon.orcid i {
+  color: #a6ce39;
+}
+
+.cvl-icon.github i {
+  color: #cbd5e1;
+}
+
+.cvl-icon.linkedin i {
+  color: #0a66c2;
+}
+
+/* Hover Effect (subtle glow) */
+.cvl-icon:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(139, 92, 246, 0.35);
 }

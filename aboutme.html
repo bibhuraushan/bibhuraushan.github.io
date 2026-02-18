@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CV • Bibhuti Kumar Jha</title>
     <meta name="description" content="Web CV — Bibhuti Kumar Jha" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
 
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/cv.css" />
+    <link rel="stylesheet" href="assets/css/research.css" />
   </head>
 
   <body data-page="cv">
@@ -35,11 +41,10 @@
 
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="index.html">Home</a>
+          <a class="active" href="aboutme.html">About Me</a>
+          <a href="research.html">Research</a>
           <a href="publications.html">Publications</a>
-          <a class="active" href="cv.html">CV</a>
-          <a href="repositories.html">Code</a>
-          <a href="articles.html">Writing</a>
-          <a href="travel.html">Travel</a>
+          <a href="articles.html">Articles</a>
           <a href="photography.html">Photography</a>
 
           <button
@@ -58,76 +63,90 @@
     <main>
       <section class="section">
         <div class="container">
-          <div class="glass-card cvl-shell">
+          <div class="glass-card rsh-shell">
             <!-- LEFT SIDEBAR -->
-            <aside class="cvl-side">
-              <div class="cvl-id">
-                <!-- Top title -->
-                <!-- <div class="cvl-cvtitle">
-                  <div class="cvl-cvtitle-big">Curriculum Vitae</div>
-                  <div class="cvl-cvtitle-sub muted">Web version</div>
-                </div> -->
-
-                <!-- Middle identity block -->
-                <div class="cvl-identity">
-                <div class="cvl-nameblock">
-                    <div class="cvl-person">Bibhuti Kumar Jha, PhD</div>
-                    <div class="cvl-role">Research Scientist</div>
-                    <div class="cvl-inst">SwRI, Boulder, CO 80302, USA</div>
+            <aside class="rsh-side" aria-label="Research topics">
+              <div class="rsh-side-head">
+                <div class="pill">
+                  <span class="dot"></span>
+                  <span>Home • About Me</span>
                 </div>
-                </div>
+                <div class="rsh-side-title">Curriculum Vitae</div>
+              </div>
 
-              <nav class="cvl-tabs" aria-label="CV sections">
+              <nav class="rsh-tabs" aria-label="CV sections">
                 <button class="cvl-tab active" type="button" data-tab="about">
-                  <span class="cvl-tab-ic">⟡</span><span>About Me</span>
+                  <span class="cvltab-ic">⟡</span><span>About Me</span>
                 </button>
                 <button class="cvl-tab" type="button" data-tab="experience">
-                  <span class="cvl-tab-ic">⌁</span><span>Experience</span>
-                </button>
-                <button class="cvl-tab" type="button" data-tab="education">
-                  <span class="cvl-tab-ic">⌂</span><span>Education</span>
-                </button>
-                <button class="cvl-tab" type="button" data-tab="research">
-                  <span class="cvl-tab-ic">✦</span><span>Research</span>
+                  <span class="cvl-tab-ic">⟡</span><span>Experience</span>
                 </button>
                 <button class="cvl-tab" type="button" data-tab="toolbox">
-                  <span class="cvl-tab-ic">⚙︎</span><span>Toolbox</span>
+                  <span class="cvl-tab-ic">⟡</span><span>Mentorship</span>
+                </button>
+                <button class="cvl-tab" type="button" data-tab="education">
+                  <span class="cvl-tab-ic">⟡</span><span>Education</span>
+                </button>
+                <button class="cvl-tab" type="button" data-tab="toolbox">
+                  <span class="cvl-tab-ic">⟡</span><span>Invited Talks</span>
                 </button>
                 <button class="cvl-tab" type="button" data-tab="talks">
-                  <span class="cvl-tab-ic">✧</span><span>Talks</span>
+                  <span class="cvl-tab-ic">⟡</span><span>Awards</span>
                 </button>
                 <button class="cvl-tab" type="button" data-tab="service">
-                  <span class="cvl-tab-ic">☍</span><span>Service</span>
+                  <span class="cvl-tab-ic">⟡</span><span>Service</span>
                 </button>
               </nav>
+              <div class="cvl-icon-row">
+                <a
+                  class="cvl-icon ads"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="NASA ADS"
+                >
+                  <i class="fa-solid fa-atom"></i>
+                </a>
 
-              <div class="cvl-mini">
-                <div class="cvl-mini-row">
-                  <div class="cvl-k">Now</div>
-                  <div class="cvl-v">SwRI • Boulder, CO</div>
-                </div>
-                <div class="cvl-mini-row">
-                  <div class="cvl-k">Email</div>
-                  <div class="cvl-v">
-                    <a class="cvl-link" href="mailto:bibhuti.jha@swri.org"
-                      >bibhuti.jha@swri.org</a
-                    >
-                  </div>
-                </div>
-                <div class="cvl-mini-row">
-                  <div class="cvl-k">Links</div>
-                  <div class="cvl-v cvl-links">
-                    <a class="cvl-link" href="#" target="_blank" rel="noopener"
-                      >Scholar</a
-                    >
-                    <a class="cvl-link" href="#" target="_blank" rel="noopener"
-                      >ADS</a
-                    >
-                    <a class="cvl-link" href="#" target="_blank" rel="noopener"
-                      >ORCID</a
-                    >
-                  </div>
-                </div>
+                <a
+                  class="cvl-icon scholar"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Google Scholar"
+                >
+                  <i class="fa-brands fa-google"></i>
+                </a>
+
+                <a
+                  class="cvl-icon orcid"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="ORCID"
+                >
+                  <i class="fa-brands fa-orcid"></i>
+                </a>
+
+                <a
+                  class="cvl-icon github"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="GitHub"
+                >
+                  <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a
+                  class="cvl-icon linkedin"
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn"
+                >
+                  <i class="fa-brands fa-linkedin"></i>
+                </a>
               </div>
             </aside>
 
@@ -136,10 +155,13 @@
               <!-- TOP BAR -->
               <div class="cvl-top">
                 <div class="cvl-header">
-                    <div class="cvl-header-title">Curriculum Vitae</div>
-                    <div class="cvl-header-sub muted">Academic profile & Research overview</div>
+                  <div class="cvl-header-title">Bibhuti Kumar Jha</div>
+                  <div class="cvl-role">
+                    Research Scientist, SwRI, Boulder, CO 80302
+                  </div>
+                  <!-- <div class="cvl-inst">SwRI, Boulder, CO 80302, USA</div> -->
                 </div>
-            </div>
+              </div>
               <!-- PANE: OVERVIEW -->
               <div class="cvl-pane active" id="tab-about">
                 <div class="cvl-pane-head">
@@ -202,10 +224,8 @@
               <!-- PANE: EXPERIENCE -->
               <div class="cvl-pane" id="tab-experience">
                 <div class="cvl-pane-head">
-                  <h2>Experience</h2>
-                  <p class="muted">Roles and impact</p>
+                  <h2>Research Experience</h2>
                 </div>
-
                 <div class="glass-card cvl-card">
                   <div class="cvl-timeline">
                     <div class="cvl-titem">
@@ -373,8 +393,7 @@
               <!-- PANE: TOOLBOX -->
               <div class="cvl-pane" id="tab-toolbox">
                 <div class="cvl-pane-head">
-                  <h2>Toolbox</h2>
-                  <p class="muted">What I use daily</p>
+                  <h2>My Skills</h2>
                 </div>
 
                 <div class="glass-card cvl-card">
@@ -382,10 +401,12 @@
                     <div class="cvl-skill">
                       <div class="cvl-skill-h">Programming</div>
                       <div class="cvl-skill-b">
-                        <span class="tag">Python</span
-                        ><span class="tag">Fortran</span
-                        ><span class="tag">Bash</span
-                        ><span class="tag">Git</span>
+                        <span class="tag">Python,</span
+                        ><span class="tag">Fortran,</span
+                        ><span class="tag">Bash,</span
+                        ><span class="tag">IDL,</span>
+                        <span class="tag">C,</span>
+                        <span class="tag">C++</span>
                       </div>
                     </div>
                     <div class="cvl-skill">
