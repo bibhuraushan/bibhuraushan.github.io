@@ -315,19 +315,70 @@ img {
   letter-spacing: -0.03em;
   line-height: 1.02;
 }
+/* Name styling: modern, subtle, readable */
+.title-strong,
+.title-soft {
+  display: inline; /* keep on one line */
+  margin: 0; /* remove block spacing */
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* First name: mostly solid with a very gentle sheen */
 .title-strong {
-  background: linear-gradient(135deg, var(--text), rgba(234, 240, 255, 0.6));
+  color: var(--text);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.96),
+    rgba(255, 255, 255, 0.7)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
+/* Last name: softer accent, less neon */
 .title-soft {
-  display: block;
-  margin-top: 6px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  background: linear-gradient(
+    90deg,
+    rgba(139, 92, 246, 0.95),
+    rgba(56, 189, 248, 0.85)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  opacity: 0.92;
+}
+
+/* Light theme tuning: keep it classy and not too bright */
+:root[data-theme="light"] .title-strong {
+  background: linear-gradient(
+    180deg,
+    rgba(11, 16, 32, 0.98),
+    rgba(11, 16, 32, 0.72)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:root[data-theme="light"] .title-soft {
+  background: linear-gradient(
+    90deg,
+    rgba(99, 102, 241, 0.95),
+    rgba(14, 165, 233, 0.9)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.95;
+}
+
+@media (hover: hover) {
+  .hero-title:hover .title-soft {
+    opacity: 1;
+    filter: saturate(1.08);
+  }
 }
 
 .subtitle {
@@ -1005,4 +1056,139 @@ img {
   align-items: flex-start; /* ← this right-aligns everything */
   text-align: left; /* ← makes text align right */
   gap: 16px;
+}
+
+/* Lates Publication */
+/* Home: Latest publication card */
+.latestpub-card {
+  padding: 14px;
+  margin-top: 14px;
+}
+
+.latestpub-more {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+.latestpub-more:hover {
+  border-bottom-color: rgba(255, 255, 255, 0.34);
+}
+
+.latestpub-item {
+  display: grid;
+  gap: 8px;
+}
+
+.latestpub-title {
+  font-weight: 850;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  font-size: 15px;
+}
+
+.latestpub-authors {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.latestpub-venue {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.latestpub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+/* reuse your publication link look */
+.latestpub-links .pub-link {
+  text-decoration: none;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+}
+.latestpub-links .pub-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+/* Author highlight (matches your publications page style) */
+.author-highlight {
+  font-weight: 900;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.14);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+//* =========================
+   FORCE hamburger appearance
+   Put at VERY END of styles.css
+   ========================= */
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: inline-flex !important;
+    flex-direction: column !important; /* <— key */
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+
+    width: 44px !important;
+    height: 44px !important;
+
+    border-radius: 12px !important;
+    border: 1px solid var(--border) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+  }
+
+  .nav-toggle span {
+    display: block !important;
+    width: 20px !important;
+    height: 2px !important;
+    border-radius: 2px !important;
+    background: var(--text) !important;
+    opacity: 1 !important;
+  }
+
+  /* Hide desktop nav by default on mobile */
+  .nav-links {
+    display: none !important;
+  }
+
+  /* Show mobile dropdown only when open */
+  .nav-links.open {
+    display: flex !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: calc(100% + 12px) !important;
+    width: min(320px, calc(100vw - 40px)) !important;
+
+    flex-direction: column !important;
+    gap: 10px !important;
+
+    padding: 14px !important;
+    border-radius: 16px !important;
+    border: 1px solid var(--border) !important;
+    background: rgba(18, 18, 22, 0.92) !important;
+    backdrop-filter: blur(12px) !important;
+    z-index: 999 !important;
+  }
+
+  :root[data-theme="light"] .nav-links.open {
+    background: rgba(255, 255, 255, 0.92) !important;
+  }
+}
+
+/* Desktop: hide hamburger */
+@media (min-width: 901px) {
+  .nav-toggle {
+    display: none !important;
+  }
 }
