@@ -1,17 +1,25 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Publications • Bibhuti Kumar Jha</title>
     <meta
       name="description"
-      content="Publications of Bibhuti Kumar Jha — loaded from JSON."
+      content="Publications — loaded from JSON by category."
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Same layout language as research -->
+    <link rel="stylesheet" href="assets/css/publications.css" />
+    <link rel="stylesheet" href="assets/css/cv.css" />
   </head>
 
-  <body data-page="publications" data-pubs-json="data/publications.json">
+  <body data-page="publications">
     <!-- Background accents -->
     <div class="bg">
       <div class="blob b1"></div>
@@ -58,69 +66,125 @@
     </header>
 
     <main>
-      <!-- Header -->
       <section class="section">
         <div class="container">
-          <div class="glass-card pub-hero">
-            <div class="pub-hero-left">
-              <div class="pill">
-                <span class="dot"></span>
-                <span>Papers • Preprints</span>
+          <div class="glass-card pub-shell">
+            <!-- LEFT: CATEGORY MENU -->
+            <aside class="pub-side" aria-label="Publication categories">
+              <div class="pub-side-head">
+                <div class="pill">
+                  <span class="dot"></span>
+                  <span>Home • Publications</span>
+                </div>
+                <div class="pub-side-title">Categories</div>
               </div>
 
-              <h1 class="pub-h1">Publications</h1>
-              <p class="pub-lead">
-                A curated collection of scholarly work in
-                <span class="pub-em">solar and heliophysics research</span>,
-                spanning theory, data analysis, and modeling.
-              </p>
+              <div
+                class="pub-tabs"
+                role="tablist"
+                aria-label="Publication menu"
+              >
+                <button
+                  class="pub-tab active"
+                  type="button"
+                  data-tab="refereed"
+                  data-title="Refereed"
+                  data-sub="Peer-reviewed journal articles"
+                  data-json="data/publications.json"
+                  role="tab"
+                  aria-selected="true"
+                >
+                  <span class="pub-ic">📄</span><span>Refereed</span>
+                </button>
 
-              <div class="pub-controls">
-                <div class="pub-field">
-                  <label class="pub-label" for="yearSelect">Year</label>
-                  <select
-                    id="yearSelect"
-                    class="pub-select"
-                    aria-label="Select year"
-                  ></select>
-                </div>
+                <button
+                  class="pub-tab"
+                  type="button"
+                  data-tab="conference"
+                  data-title="Conference"
+                  data-sub="Conference proceedings & conference papers"
+                  data-json="data/pubs-conference.json"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  <span class="pub-ic">🧾</span><span>Conference</span>
+                </button>
 
-                <div class="pub-field grow">
-                  <label class="pub-label" for="searchBox">Search</label>
-                  <input
-                    id="searchBox"
-                    class="pub-input"
-                    type="search"
-                    placeholder="Search Title / Author / Journal / Tags…"
-                  />
-                </div>
+                <button
+                  class="pub-tab"
+                  type="button"
+                  data-tab="invited"
+                  data-title="Invited Talks"
+                  data-sub="Invited talks, seminars, colloquia"
+                  data-json="data/pubs-invited-talks.json"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  <span class="pub-ic">🎤</span><span>Invited Talks</span>
+                </button>
 
-                <div class="pub-field">
-                  <label class="pub-label">&nbsp;</label>
-                  <button id="clearSearch" class="btn ghost" type="button">
-                    Clear
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <aside class="pub-hero-right">
-              <div class="glass-card pub-stat">
-                <div class="pub-stat-total">
-                  <span id="count">0</span>
-                  <span class="pub-stat-word">Publications</span>
-                </div>
+                <button
+                  class="pub-tab"
+                  type="button"
+                  data-tab="posters"
+                  data-title="Posters"
+                  data-sub="Conference posters & contributed posters"
+                  data-json="data/pubs-posters.json"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  <span class="pub-ic">🖼️</span><span>Posters</span>
+                </button>
               </div>
             </aside>
-          </div>
-        </div>
-      </section>
 
-      <!-- List -->
-      <section class="section tight">
-        <div class="container">
-          <div class="glass-card pub-panel">
-            <div id="pubList"></div>
+            <!-- RIGHT: CONTENT -->
+            <section class="pub-main" aria-live="polite">
+              <div class="pub-top">
+                <!-- Header -->
+                <div class="pub-topblock">
+                  <div class="cvl-header-title" id="pubHeaderTitle">
+                    Refereed
+                  </div>
+                </div>
+
+                <!-- Controls Row BELOW header -->
+                <div class="pub-controls-row">
+                  <div class="pub-controls-left">
+                    <label class="pub-sort">
+                      <span class="muted">Year</span>
+                      <select id="pubYear" aria-label="Filter by year">
+                        <option value="all">All Years</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <div class="pub-controls-right">
+                    <!-- <div class="glass-card pub-stat"> -->
+                    <div class="pub-stat-total">
+                      <span id="pubCount">0</span>
+                      <span class="pub-stat-word">Items</span>
+                    </div>
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="pub-pane active" id="tab-refereed">
+                <div id="pubList" class="pub-list"></div>
+
+                <div id="pubEmpty" class="pub-empty muted" hidden>
+                  No items found in this category.
+                </div>
+
+                <div id="pubError" class="pub-error" hidden>
+                  <div class="pub-error-title">
+                    Could not load publications.
+                  </div>
+                  <div class="muted" id="pubErrorMsg"></div>
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </section>
