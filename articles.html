@@ -3,43 +3,185 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Repositories • Bibhuti Kumar Jha</title>
+    <title>Articles • Bibhuti Kumar Jha</title>
+    <meta
+      name="description"
+      content="Articles by Bibhuti Kumar Jha on solar data, modeling, and research workflows."
+    />
+
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
 
-  <body data-page="repositories">
+  <body data-page="articles">
+    <div class="bg">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="grain"></div>
+    </div>
+
     <header class="nav">
       <div class="container nav-inner">
-        <a class="brand" href="/"
-          ><span class="dot"></span><span>Bibhuti Kumar Jha</span></a
+        <a class="brand" href="index.html" aria-label="Home">
+          <span class="brand-mark"></span>
+          <span class="brand-text">Bibhuti Kumar Jha</span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
         >
-        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
+
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="index.html">Home</a>
-          <a href="articles.html">Articles</a>
+          <a href="aboutme.html">About Me</a>
+          <a href="research.html">Research</a>
           <a href="publications.html">Publications</a>
-          <a href="cv.html">CV</a>
-          <a href="repositories.html">Repositories</a>
-          <a href="travel.html">Travel</a>
-          <a href="photography.html">Photography</a>
-          <button class="btn ghost" id="themeToggle" type="button">◐</button>
+          <a class="active" href="articles.html">Articles</a>
+
+          <button class="theme-btn" id="themeToggle" type="button">
+            <span class="theme-icon">☀︎</span>
+          </button>
         </nav>
       </div>
     </header>
 
-    <main class="section">
-      <div class="container">
-        <h1>Repositories</h1>
-        <p class="lead">Selected open-source projects and tools.</p>
-        <div id="dataList" class="grid-3" style="margin-top: 18px"></div>
-      </div>
+    <main>
+      <section class="section page-hero">
+        <div class="container">
+          <div class="glass-card page-hero-card">
+            <div class="pill">
+              <span class="dot"></span>
+              <span>Home • Articles</span>
+            </div>
+            <h1 class="page-title">Articles</h1>
+            <p class="page-lead">
+              This section is for longer-form writing: research explainers,
+              notes on methods, and essays that make the scientific work easier
+              to follow outside a paper format.
+            </p>
+
+            <div class="hero-stats">
+              <div class="stat-card">
+                <div class="stat-value">In progress</div>
+                <div class="stat-label">Article archive</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Planned opening series</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-value">1 site</div>
+                <div class="stat-label">Shared visual language</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>What will live here</h2>
+            <p class="muted">
+              The goal is not volume first, but useful writing that complements the research pages.
+            </p>
+          </div>
+
+          <div class="cards3">
+            <article class="card">
+              <div class="card-icon">☉</div>
+              <h3>Solar cycle explainers</h3>
+              <p>
+                Short essays translating long-cycle magnetic evolution into a
+                more accessible story.
+              </p>
+              <span class="card-link">Planned series</span>
+            </article>
+
+            <article class="card">
+              <div class="card-icon">⌘</div>
+              <h3>Methods and workflows</h3>
+              <p>
+                Notes on AFT/SFT pipelines, validation choices, and how I think
+                about scientific software.
+              </p>
+              <span class="card-link">Planned series</span>
+            </article>
+
+            <article class="card">
+              <div class="card-icon">✎</div>
+              <h3>Research context</h3>
+              <p>
+                Posts that sit between paper and homepage: enough detail to be
+                informative, still readable without specialist context.
+              </p>
+              <span class="card-link">Planned series</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="roadmap-grid">
+            <article class="roadmap-card">
+              <div class="roadmap-status">Current state</div>
+              <h3>This page is now a real destination</h3>
+              <p>
+                The section is no longer a broken placeholder. It is set up as
+                the article hub and can absorb published posts as they are added.
+              </p>
+            </article>
+
+            <article class="roadmap-card">
+              <div class="roadmap-status roadmap-status-soon">Next useful addition</div>
+              <h3>One flagship explainer</h3>
+              <p>
+                A first article on historical solar magnetic reconstruction
+                would immediately make the site feel deeper and more personal.
+              </p>
+            </article>
+
+            <article class="roadmap-card">
+              <div class="roadmap-status roadmap-status-soon">Good long-term use</div>
+              <h3>A bridge between papers and tools</h3>
+              <p>
+                Articles can eventually point to software, figures, datasets,
+                and project pages as those sections come online.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="article-start">
+        <div class="container contact">
+          <div class="glass-card contact-card">
+            <div>
+              <h2>Until the first posts are published</h2>
+              <p class="muted">
+                Use the research page for thematic context and the publications page for the formal record.
+              </p>
+            </div>
+
+            <div class="contact-actions">
+              <a class="btn primary" href="research.html">Open Research</a>
+              <a class="btn" href="publications.html">Open Publications</a>
+              <a class="btn ghost" href="aboutme.html">Open About</a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-      <div class="container">
-        <small>© <span id="year"></span> Bibhuti Kumar Jha</small>
+      <div class="container footer-inner">
+        <div class="muted">© <span id="year"></span> Bibhuti Kumar Jha</div>
+        <div class="muted">Hosted on GitHub Pages</div>
       </div>
     </footer>
 

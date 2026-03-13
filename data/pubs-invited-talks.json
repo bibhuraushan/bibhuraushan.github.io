@@ -1,0 +1,72 @@
+[
+  {
+    "title": "Integrating Far-Side Active Regions into the Advective Flux Transport Model: Enhancing Solar Cycle Simulations",
+    "event": "Solar cycle variability: From understanding to making prediction",
+    "institute": "ARIES",
+    "location": "Nainital, India",
+    "year": 2024,
+    "month": "Oct",
+    "date_text": "October 14-18, 2024",
+    "kind": "Conference Talk"
+  },
+  {
+    "title": "A Window into the Past: Simulating the Sun's Historical Photospheric Magnetic Field using AFT",
+    "event": "Space Climate 9 Symposium and ISEE Symposium",
+    "institute": "ISEE",
+    "location": "Nagoya, Japan",
+    "year": 2024,
+    "month": "Oct",
+    "date_text": "October 1-4, 2024",
+    "kind": "Invited Talk"
+  },
+  {
+    "title": "Hands-on Session: Extracting Information from Long-Term Data",
+    "event": "Winter School on Concept in Solar Physics-2023",
+    "institute": "NIT Delhi",
+    "location": "NIT Delhi, India",
+    "year": 2023,
+    "month": "Dec",
+    "date_text": "December 19-23, 2023",
+    "kind": "Hands-on Session"
+  },
+  {
+    "title": "Embracing the Reversal of Sun's Polar Field of Solar Cycle 25 Based on Advective Flux Transport Model",
+    "event": "IIT-BHU seminar",
+    "institute": "IIT-BHU",
+    "location": "Varanasi, India",
+    "year": 2023,
+    "month": "Dec",
+    "date_text": "December 15, 2023",
+    "kind": "Seminar"
+  },
+  {
+    "title": "A Century of Solar Observations from Kodaikanal Solar Observatory: New Insights from Ca II K Data, Thomas Metcalf Lecturer",
+    "event": "Sun Climate Symposium",
+    "institute": "Lowell Observatory",
+    "location": "Flagstaff, AZ",
+    "year": 2023,
+    "month": "Oct",
+    "date_text": "October 16-20, 2023",
+    "kind": "Lecture"
+  },
+  {
+    "title": "Tilt of the Bipolar Active Regions: Beyond Joy's Law",
+    "event": "HAO Colloquium",
+    "institute": "High Altitude Observatory",
+    "location": "Boulder, CO",
+    "year": 2023,
+    "month": "Oct",
+    "date_text": "October 4, 2023",
+    "kind": "Colloquium"
+  },
+  {
+    "title": "Theoretical Model Of An Intriguing Layer Of The Sun: The Near Surface Shear Layer",
+    "event": "COFFIES Seminar",
+    "institute": "COFFIES",
+    "location": "",
+    "year": 2023,
+    "month": "Apr",
+    "date_text": "April 11, 2023",
+    "kind": "Seminar"
+  }
+]

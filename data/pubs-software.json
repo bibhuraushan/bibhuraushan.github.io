@@ -1,0 +1,32 @@
+[
+  {
+    "title": "autotabpy",
+    "summary": "Automatic Tracking Algorithm for Bipolar Magnetic Regions.",
+    "status": "Zenodo software record",
+    "year": 2025,
+    "month": "Jun",
+    "stack": [
+      "Python",
+      "Solar magnetic regions",
+      "Tracking"
+    ],
+    "repo": "https://github.com/bibhuraushan/autotabpy",
+    "docs": "https://doi.org/10.5281/zenodo.15666357",
+    "link": "https://zenodo.org/records/15666357"
+  },
+  {
+    "title": "HipFT: High-performance Flux Transport",
+    "summary": "High-performance flux transport software used as the computational core of the Open-source Flux Transport (OFT) suite.",
+    "status": "Zenodo software record",
+    "year": 2025,
+    "month": "Feb",
+    "stack": [
+      "Fortran",
+      "Flux transport",
+      "MPI / OpenMP"
+    ],
+    "repo": "https://github.com/predsci/hipft",
+    "docs": "https://doi.org/10.5281/zenodo.14942123",
+    "link": "https://zenodo.org/records/14942123"
+  }
+]

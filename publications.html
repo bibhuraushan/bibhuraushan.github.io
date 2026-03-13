@@ -32,7 +32,7 @@
       <div class="container nav-inner">
         <a class="brand" href="index.html" aria-label="Home">
           <span class="brand-mark"></span>
-          <span class="brand-text">Bibhuti</span>
+          <span class="brand-text">Bibhuti Kumar Jha</span>
         </a>
 
         <button
@@ -50,8 +50,6 @@
           <a href="research.html">Research</a>
           <a class="active" href="publications.html">Publications</a>
           <a href="articles.html">Articles</a>
-          <a href="photography.html">Photography</a>
-
           <button
             class="theme-btn"
             id="themeToggle"
@@ -76,7 +74,7 @@
                   <span class="dot"></span>
                   <span>Home • Publications</span>
                 </div>
-                <div class="pub-side-title">Categories</div>
+                <div class="pub-side-title">Publication Archive</div>
               </div>
 
               <div
@@ -88,54 +86,73 @@
                   class="pub-tab active"
                   type="button"
                   data-tab="refereed"
-                  data-title="Refereed"
-                  data-sub="Peer-reviewed journal articles"
-                  data-json="data/publications.json"
+                  data-title="Refereed Articles"
+                  data-sub="Journal articles and preprints"
+                  data-json="data/pubs-refereed.json"
+                  data-kind="publication"
                   role="tab"
                   aria-selected="true"
                 >
-                  <span class="pub-ic">📄</span><span>Refereed</span>
+                  <span class="pub-ic">☉</span><span>Refereed Articles</span>
                 </button>
 
                 <button
                   class="pub-tab"
                   type="button"
-                  data-tab="conference"
-                  data-title="Conference"
-                  data-sub="Conference proceedings & conference papers"
-                  data-json="data/pubs-conference.json"
+                  data-tab="proceedings"
+                  data-title="Proceedings"
+                  data-sub="Conference proceedings and meeting abstracts"
+                  data-json="data/pubs-proceedings.json"
+                  data-kind="publication"
                   role="tab"
                   aria-selected="false"
                 >
-                  <span class="pub-ic">🧾</span><span>Conference</span>
+                  <span class="pub-ic">☉</span><span>Proceedings</span>
                 </button>
 
                 <button
                   class="pub-tab"
                   type="button"
-                  data-tab="invited"
+                  data-tab="talks"
                   data-title="Invited Talks"
-                  data-sub="Invited talks, seminars, colloquia"
+                  data-sub="Talks, lectures, colloquia, and invited sessions"
                   data-json="data/pubs-invited-talks.json"
+                  data-kind="talk"
                   role="tab"
                   aria-selected="false"
                 >
-                  <span class="pub-ic">🎤</span><span>Invited Talks</span>
+                  <span class="pub-ic">☉</span><span>Invited Talks</span>
                 </button>
 
                 <button
                   class="pub-tab"
                   type="button"
-                  data-tab="posters"
-                  data-title="Posters"
-                  data-sub="Conference posters & contributed posters"
-                  data-json="data/pubs-posters.json"
+                  data-tab="software"
+                  data-title="Published Software"
+                  data-sub="Reusable software and code releases"
+                  data-json="data/pubs-software.json"
+                  data-kind="software"
                   role="tab"
                   aria-selected="false"
                 >
-                  <span class="pub-ic">🖼️</span><span>Posters</span>
+                  <span class="pub-ic">☉</span><span>Published Software</span>
+                </button>
+
+                <button
+                  class="pub-tab"
+                  type="button"
+                  data-tab="data"
+                  data-title="Data"
+                  data-sub="Datasets, archives, and products"
+                  data-json="data/pubs-data.json"
+                  data-kind="data"
+                  role="tab"
+                  aria-selected="false"
+                >
+                  <span class="pub-ic">☉</span><span>Data</span>
                 </button>
               </div>
+
             </aside>
 
             <!-- RIGHT: CONTENT -->
@@ -144,7 +161,10 @@
                 <!-- Header -->
                 <div class="pub-topblock">
                   <div class="cvl-header-title" id="pubHeaderTitle">
-                    Refereed
+                    Refereed Articles
+                  </div>
+                  <div class="pub-top-sub muted" id="pubHeaderSub">
+                    Journal articles and preprints
                   </div>
                 </div>
 
@@ -197,7 +217,7 @@
       </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/publications.js"></script>
+    <script src="assets/js/main.js?v=2"></script>
+    <script src="assets/js/publications.js?v=3"></script>
   </body>
 </html>

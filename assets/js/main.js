@@ -7,15 +7,12 @@ function mobileNav() {
   if (!toggle || !links) return;
 
   toggle.addEventListener("click", () => {
-    links.classList.toggle("open");
-    toggle.setAttribute(
-      "aria-expanded",
-      String(links.classList.contains("open")),
-    );
+    const open = links.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
   });
 
-  $$(".nav-links a").forEach((a) => {
-    a.addEventListener("click", () => {
+  $$(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
       links.classList.remove("open");
       toggle.setAttribute("aria-expanded", "false");
     });
@@ -29,28 +26,26 @@ function theme() {
 
   if (saved === "light" || saved === "dark") {
     root.dataset.theme = saved;
+  } else if (!root.dataset.theme) {
+    root.dataset.theme = "dark";
   }
 
   const btn = $("#themeToggle");
   if (!btn) return;
 
   const icon = btn.querySelector(".theme-icon");
+  const syncIcon = () => {
+    if (icon) {
+      icon.textContent = root.dataset.theme === "dark" ? "☀︎" : "☾";
+    }
+  };
 
-  // Set correct icon on load
-  const current = root.dataset.theme || "dark";
-  if (icon) {
-    icon.textContent = current === "dark" ? "☀︎" : "☾";
-  }
+  syncIcon();
 
   btn.addEventListener("click", () => {
-    const next = root.dataset.theme === "light" ? "dark" : "light";
-    root.dataset.theme = next;
-    localStorage.setItem(key, next);
-
-    // Update icon after toggle
-    if (icon) {
-      icon.textContent = next === "dark" ? "☀︎" : "☾";
-    }
+    root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";
+    localStorage.setItem(key, root.dataset.theme);
+    syncIcon();
   });
 }
 
@@ -64,26 +59,3 @@ document.addEventListener("DOMContentLoaded", () => {
   theme();
   year();
 });
-
-// inside main.js when toggling theme
-themeToggle.textContent = currentTheme === "dark" ? "☀︎" : "☾";
-
-/* Mobile nav toggle */
-(function () {
-  const toggle = document.querySelector(".nav-toggle");
-  const menu = document.querySelector(".nav-links");
-  if (!toggle || !menu) return;
-
-  toggle.addEventListener("click", () => {
-    const open = menu.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-
-  // close on link click
-  menu.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => {
-      menu.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
-  });
-})();

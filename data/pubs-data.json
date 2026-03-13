@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Kodaikanal Solar Observatory (KoSO) White-Light Sunspot Regions Masks (1904-2017)",
+    "summary": "White-light sunspot region masks from Kodaikanal Solar Observatory spanning 1904 to 2017.",
+    "status": "Zenodo dataset record",
+    "year": 2024,
+    "month": "Jun",
+    "coverage": "1904-2017",
+    "format": "Dataset",
+    "link": "https://zenodo.org/records/11480481"
+  },
+  {
+    "title": "A Unified Sunspot Group Dataset (RGO/SOON/NOAA) from 1874 to Present",
+    "summary": "Unified sunspot group dataset combining RGO, SOON, and NOAA records from 1874 onward.",
+    "status": "Zenodo dataset record",
+    "year": 2025,
+    "month": "Sep",
+    "coverage": "1874-present",
+    "format": "Dataset",
+    "link": "https://zenodo.org/records/17108109"
+  }
+]

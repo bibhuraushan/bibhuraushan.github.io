@@ -2,29 +2,30 @@
 (function () {
   const tabs = Array.from(document.querySelectorAll(".cvl-tab"));
   const panes = Array.from(document.querySelectorAll(".cvl-pane"));
-  // const crumb = document.getElementById("cvlCrumb");
+
+  if (!tabs.length || !panes.length) return;
 
   function paneKeyFromHash() {
     const h = (location.hash || "").replace("#", "").trim();
-    // support formats: #education OR #tab=education
     if (!h) return "";
     if (h.startsWith("tab=")) return h.slice(4);
     return h;
   }
 
   function setActive(key, pushHash = true) {
-    tabs.forEach((t) => t.classList.toggle("active", t.dataset.tab === key));
-    panes.forEach((p) => p.classList.toggle("active", p.id === `tab-${key}`));
+    const resolvedKey = tabs.some((tab) => tab.dataset.tab === key)
+      ? key
+      : tabs[0].dataset.tab;
 
-    // if (crumb) {
-    //   const label =
-    //     tabs.find((t) => t.dataset.tab === key)?.innerText?.trim() || key;
-    //   crumb.textContent = label.replace(/\s+/g, " ");
-    // }
+    tabs.forEach((tab) =>
+      tab.classList.toggle("active", tab.dataset.tab === resolvedKey),
+    );
+    panes.forEach((pane) =>
+      pane.classList.toggle("active", pane.id === `tab-${resolvedKey}`),
+    );
 
     if (pushHash) {
-      // keep URL clean and shareable
-      history.replaceState(null, "", `#tab=${key}`);
+      history.replaceState(null, "", `#tab=${resolvedKey}`);
     }
   }
 
@@ -33,11 +34,11 @@
       btn.addEventListener("click", () => setActive(btn.dataset.tab));
     });
 
-    const initial = paneKeyFromHash() || "about";
+    const initial = paneKeyFromHash() || tabs[0].dataset.tab;
     setActive(initial, !!location.hash);
 
     window.addEventListener("hashchange", () => {
-      const key = paneKeyFromHash() || "about";
+      const key = paneKeyFromHash() || tabs[0].dataset.tab;
       setActive(key, false);
     });
   });

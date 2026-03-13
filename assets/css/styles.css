@@ -291,6 +291,13 @@ img {
   align-items: start;
 }
 
+.hero-left,
+.hero-right {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+}
+
 .pill {
   display: inline-flex;
   align-items: center;
@@ -382,6 +389,7 @@ img {
 }
 
 .subtitle {
+  margin: 0;
   font-size: 17px;
   color: var(--muted);
   max-width: 70ch;
@@ -392,6 +400,33 @@ img {
   gap: 10px;
   flex-wrap: wrap;
   margin-top: 16px;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.stat-card {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.045);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 850;
+  letter-spacing: -0.03em;
+}
+
+.stat-label {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .mini {
@@ -478,7 +513,7 @@ img {
 
 .glass-card {
   padding: 16px 16px 14px;
-  margin-top: 12px;
+  margin-top: 0;
 }
 .card-head {
   display: flex;
@@ -518,6 +553,29 @@ img {
 }
 .section-head p {
   margin: 0;
+}
+
+.page-hero {
+  padding-top: 54px;
+}
+
+.page-hero-card {
+  display: grid;
+  gap: 14px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 42px;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.page-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  max-width: 68ch;
 }
 
 .cards3 {
@@ -580,6 +638,48 @@ img {
   flex-wrap: wrap;
 }
 
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.roadmap-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--panel2);
+  padding: 18px;
+  box-shadow: var(--shadow2);
+}
+
+.roadmap-card h3 {
+  margin: 10px 0 8px;
+  font-size: 18px;
+}
+
+.roadmap-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.roadmap-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.28);
+  color: var(--text);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.roadmap-status-soon {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.26);
+}
+
 /* Footer */
 .footer {
   padding: 28px 0;
@@ -637,6 +737,12 @@ img {
     border-radius: 14px;
   }
   .mini {
+    grid-template-columns: 1fr;
+  }
+  .hero-stats {
+    grid-template-columns: 1fr;
+  }
+  .roadmap-grid {
     grid-template-columns: 1fr;
   }
   .contact-card {
@@ -971,7 +1077,7 @@ img {
 /* Home: Who Am I section */
 
 .whoami {
-  margin-top: -20px;
+  margin-top: 0;
   max-width: 720px;
 }
 
@@ -1050,6 +1156,11 @@ img {
   gap: 6px; /* clean spacing */
   flex-wrap: nowrap; /* prevents wrap */
 }
+
+.hero-title {
+  margin: 0;
+}
+
 .hero-content {
   display: flex;
   flex-direction: column;
@@ -1062,7 +1173,6 @@ img {
 /* Home: Latest publication card */
 .latestpub-card {
   padding: 14px;
-  margin-top: 14px;
 }
 
 .latestpub-more {
