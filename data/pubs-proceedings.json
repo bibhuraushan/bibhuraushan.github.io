@@ -1,0 +1,198 @@
+[
+  {
+    "id": "2025AAS...24510516M",
+    "year": 2025,
+    "month": "Jan",
+    "type": "Proceedings",
+    "title": "Creating a Historical Tilt Catalog for Magnetic Flux Simulation",
+    "authors": [
+      "Phoebe Mahlin",
+      "Lisa Upton",
+      "Bibhuti Jha"
+    ],
+    "venue": "American Astronomical Society Meeting Abstracts #245",
+    "venue_short": "AAS",
+    "volume": "245",
+    "pages": "105.16",
+    "ads": "https://ui.adsabs.harvard.edu/abs/2025AAS...24510516M",
+    "link": "https://ui.adsabs.harvard.edu/abs/2025AAS...24510516M"
+  },
+  {
+    "id": "2024IAUS..365..345J",
+    "year": 2024,
+    "month": "Dec",
+    "type": "Proceedings",
+    "title": "Exploring the Quenching of Bipolar Magnetic Region Tilts using AutoTAB",
+    "authors": [
+      "Bibhuti Kumar Jha",
+      "Anu B. Sreedevi",
+      "Bidya Binay Karak",
+      "Dipankar Banerjee"
+    ],
+    "venue": "Dynamics of Solar and Stellar Convection Zones and Atmospheres (IAU Symposium)",
+    "venue_short": "IAUS",
+    "volume": "365",
+    "pages": "345-349",
+    "doi": "10.1017/S1743921323005148",
+    "ads": "https://ui.adsabs.harvard.edu/abs/2024IAUS..365..345J",
+    "link": "https://ui.adsabs.harvard.edu/abs/2024IAUS..365..345J"
+  },
+  {
+    "id": "2024IAUGA..32P1404R",
+    "year": 2024,
+    "month": "Aug",
+    "type": "Proceedings",
+    "title": "Exploring the Dynamic rotational Profile of the Solar atmosphere: A multiwavelength approach",
+    "authors": [
+      "Srinjana Routh",
+      "Bibhuti Kumar Jha",
+      "Dibya Kirti Mishra",
+      "Subhamoy Chatterjee",
+      "Dipankar Banerjee"
+    ],
+    "venue": "32nd General Assembly International Union (IAUGA 2024)",
+    "venue_short": "IAUGA",
+    "pages": "1404",
+    "ads": "https://ui.adsabs.harvard.edu/abs/2024IAUGA..32P1404R",
+    "link": "https://ui.adsabs.harvard.edu/abs/2024IAUGA..32P1404R"
+  },
+  {
+    "id": "2024asi..confO..62R",
+    "year": 2024,
+    "month": "Jan",
+    "type": "Proceedings",
+    "title": "Exploring the dynamic rotational profile of the Solar Atmosphere : A multiwavelength approach",
+    "authors": [
+      "Srinjana Routh",
+      "Bibhuti Kumar Jha",
+      "Dibya Kirti Mishra",
+      "Dipankar Banerjee"
+    ],
+    "venue": "42nd meeting of the Astronomical Society of India (ASI)",
+    "venue_short": "ASI",
+    "volume": "42",
+    "pages": "O62",
+    "ads": "https://ui.adsabs.harvard.edu/abs/2024asi..confO..62R",
+    "link": "https://ui.adsabs.harvard.edu/abs/2024asi..confO..62R"
+  },
+  {
+    "id": "2023SPD....5430101J",
+    "year": 2023,
+    "month": "Oct",
+    "type": "Proceedings",
+    "title": "Automatic Detection and Tracking of Far-side Active Regions in Helioseismic Observations for the Advective Flux Transport Model",
+    "authors": [
+      "Bibhuti Kumar Jha",
+      "Lisa Upton",
+      "Ruizhu Chen",
+      "Shea Hess Webber",
+      "K. Leka"
+    ],
+    "venue": "54th Meeting of the Solar Physics Division",
+    "venue_short": "SPD",
+    "volume": "55",
+    "pages": "301.01",
+    "ads": "https://ui.adsabs.harvard.edu/abs/2023SPD....5430101J",
+    "link": "https://ui.adsabs.harvard.edu/abs/2023SPD....5430101J"
+  },
+  {
+    "id": "2023IAUS..372...86J",
+    "year": 2023,
+    "month": "Jan",
+    "type": "Proceedings",
+    "title": "Observational Signature of Tilt Quenching of Bipolar Magnetic Regions in the Sun",
+    "authors": [
+      "Bibhuti Kumar Jha",
+      "Bidya Binay Karak",
+      "Dipankar Banerjee"
+    ],
+    "venue": "The Era of Multi-Messenger Solar Physics (IAU Symposium)",
+    "venue_short": "IAUS",
+    "volume": "372",
+    "pages": "86-87",
+    "doi": "10.1017/S1743921322005002",
+    "ads": "https://ui.adsabs.harvard.edu/abs/2023IAUS..372...86J",
+    "link": "https://ui.adsabs.harvard.edu/abs/2023IAUS..372...86J"
+  },
+  {
+    "id": "2023IAUS..372...84B",
+    "year": 2023,
+    "month": "Jan",
+    "type": "Proceedings",
+    "title": "Long-term Evolution of Magnetic Field Proxies as Deduced from Archival Data",
+    "authors": [
+      "Dipankar Banerjee",
+      "Bibhuti Kumar Jha",
+      "Sudip Mandal",
+      "Subhamoy Chatterjee",
+      "Manjunath Hegde",
+      "KoSO Digitization Team"
+    ],
+    "venue": "The Era of Multi-Messenger Solar Physics (IAU Symposium)",
+    "venue_short": "IAUS",
+    "volume": "372",
+    "pages": "84-85",
+    "doi": "10.1017/S1743921323000467",
+    "ads": "https://ui.adsabs.harvard.edu/abs/2023IAUS..372...84B",
+    "link": "https://ui.adsabs.harvard.edu/abs/2023IAUS..372...84B"
+  },
+  {
+    "id": "2023IAUS..372...97S",
+    "year": 2023,
+    "month": "Jan",
+    "type": "Proceedings",
+    "title": "Automatic Algorithm for Tracking Bipolar Magnetic Regions",
+    "authors": [
+      "Anu B. Sreedevi",
+      "Bibhuti Kumar Jha"
+    ],
+    "venue": "The Era of Multi-Messenger Solar Physics (IAU Symposium)",
+    "venue_short": "IAUS",
+    "volume": "372",
+    "pages": "97-99",
+    "doi": "10.1017/S1743921322004975",
+    "ads": "https://ui.adsabs.harvard.edu/abs/2023IAUS..372...97S",
+    "link": "https://ui.adsabs.harvard.edu/abs/2023IAUS..372...97S"
+  },
+  {
+    "id": "2020AGUFMSH0020022P",
+    "year": 2020,
+    "month": "Dec",
+    "type": "Proceedings",
+    "title": "A Machine Learning Approach towards Segmentation and Analysis of Solar Filaments from Kodaikanal Solar Observatory Hand-drawn Archive",
+    "authors": [
+      "A. Priyadarshi",
+      "S. Chatterjee",
+      "M. Hegde",
+      "B. K. Jha",
+      "S. Mandal",
+      "D. Banerjee"
+    ],
+    "venue": "AGU Fall Meeting Abstracts",
+    "venue_short": "AGU",
+    "volume": "2020",
+    "pages": "SH002-0022",
+    "ads": "https://ui.adsabs.harvard.edu/abs/2020AGUFMSH0020022P",
+    "link": "https://ui.adsabs.harvard.edu/abs/2020AGUFMSH0020022P"
+  },
+  {
+    "id": "2018IAUS..340..185J",
+    "year": 2018,
+    "month": "Feb",
+    "type": "Proceedings",
+    "title": "Long-term variation of sunspot penumbra to umbra area ratio",
+    "authors": [
+      "Bibhuti Kumar Jha",
+      "Sudip Mandal",
+      "Dipankar Banerjee"
+    ],
+    "venue": "Long-term Datasets for the Understanding of Solar and Stellar Magnetic Cycles (IAU Symposium)",
+    "venue_short": "IAUS",
+    "volume": "340",
+    "pages": "185-186",
+    "doi": "10.1017/S1743921318001989",
+    "arxiv": "1805.06307",
+    "ads": "https://ui.adsabs.harvard.edu/abs/2018IAUS..340..185J",
+    "link": "https://ui.adsabs.harvard.edu/abs/2018IAUS..340..185J"
+  }
+]

@@ -44,8 +44,6 @@
           <a href="research.html">Research</a>
           <a href="publications.html">Publications</a>
           <a href="articles.html">Articles</a>
-          <a href="photography.html">Photography</a>
-
           <button class="theme-btn" id="themeToggle" type="button">
             <span class="theme-icon">☀︎</span>
           </button>
@@ -66,14 +64,47 @@
 
             <!-- <h1 class="title"> -->
             <div class="hero-content">
+              <div class="pill">
+                <span class="dot"></span>
+                <span>Solar physicist • Data-driven heliophysics</span>
+              </div>
+
               <h1 class="hero-title">
                 <span class="title-name">
                   <span class="title-strong">Bibhuti</span>
                   <span class="title-soft"> Kumar Jha</span>
                 </span>
               </h1>
+
+              <p class="subtitle">
+                I study how solar magnetic fields evolve across cycles and how
+                that evolution shapes space weather, prediction, and the way we
+                build long-baseline solar datasets.
+              </p>
+
+              <div class="cta">
+                <a class="btn primary" href="research.html">Explore Research</a>
+                <a class="btn" href="aboutme.html">About Me</a>
+                <a class="btn ghost" href="publications.html"
+                  >Browse Publications</a
+                >
+              </div>
+
+              <div class="hero-stats" aria-label="Profile highlights">
+                <div class="stat-card">
+                  <div class="stat-value">38</div>
+                  <div class="stat-label">Refereed publications</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value">6</div>
+                  <div class="stat-label">Active research themes</div>
+                </div>
+                <div class="stat-card">
+                  <div class="stat-value">SwRI</div>
+                  <div class="stat-label">Current research base</div>
+                </div>
+              </div>
             </div>
-            <!-- </h1> -->
 
             <div class="whoami whoami-card">
               <div class="whoami-accent" aria-hidden="true"></div>
@@ -101,7 +132,7 @@
 
               <p class="whoami-text">
                 Currently, I am a Research Scientist at the Southwest Research
-                Institute (SwRI), Boulderm CO, USA. My research centers on
+                Institute (SwRI), Boulder, CO, USA. My research centers on
                 understanding the solar cycle and its impact on Earth from a
                 space-weather perspective, with the goal of improving our
                 ability to model and predict solar-driven disturbances that
@@ -152,7 +183,8 @@
                 <div class="meta">Research Scientist • SwRI • Boulder, CO</div>
 
                 <div class="links">
-                  <a class="chip" href="mailto:YOUR_EMAIL">Email</a>
+                  <a class="chip" href="aboutme.html#tab=connect">Connect</a>
+                  <a class="chip" href="research.html">Research</a>
                   <a
                     class="chip"
                     href="https://github.com/bibhuraushan"
@@ -162,10 +194,8 @@
                   >
                   <a
                     class="chip"
-                    href="https://scholar.google.com"
-                    target="_blank"
-                    rel="noopener"
-                    >Scholar</a
+                    href="publications.html"
+                    >Publications</a
                   >
                 </div>
               </div>
@@ -173,7 +203,7 @@
 
             <div class="glass-card hi-card">
               <div class="card-head">
-                <h2>Featured</h2>
+                <h2>Recent highlights</h2>
                 <!-- <span class="muted">In the news</span> -->
               </div>
 
@@ -191,31 +221,71 @@
       <section class="section">
         <div class="container">
           <div class="section-head">
-            <h2>Featured</h2>
-            <p class="muted">A few entry points to my work</p>
+            <h2>Research themes</h2>
+            <p class="muted">A few strong entry points into the questions I work on</p>
           </div>
 
           <div class="cards3">
-            <a class="card" href="publications.html">
-              <div class="card-icon">✦</div>
-              <h3>Selected publications</h3>
-              <p>Peer-reviewed work and preprints.</p>
-              <span class="card-link">Explore →</span>
+            <a class="card" href="research.html#tab=solar-cycle">
+              <div class="card-icon">☉</div>
+              <h3>Solar cycle variability</h3>
+              <p>Long-baseline evolution, reversals, and cycle-to-cycle structure.</p>
+              <span class="card-link">Open theme →</span>
             </a>
 
-            <a class="card" href="repositories.html">
+            <a class="card" href="research.html#tab=sft-aft">
               <div class="card-icon">⌘</div>
-              <h3>Code & repositories</h3>
-              <p>Tools, data pipelines, and utilities.</p>
-              <span class="card-link">Browse →</span>
+              <h3>SFT / AFT modeling</h3>
+              <p>Transport-based magnetic evolution with data-assimilation workflows.</p>
+              <span class="card-link">Open theme →</span>
             </a>
 
-            <a class="card" href="articles.html">
+            <a class="card" href="research.html#tab=ml">
               <div class="card-icon">✎</div>
-              <h3>Writing</h3>
-              <p>Notes on solar data, methods, and workflows.</p>
-              <span class="card-link">Read →</span>
+              <h3>ML-ready solar data</h3>
+              <p>Calibration, detection, and forecasting products designed for reuse.</p>
+              <span class="card-link">Open theme →</span>
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2>Site roadmap</h2>
+            <p class="muted">
+              The site is expanding in layers, with room for dedicated pages as the archive grows.
+            </p>
+          </div>
+
+          <div class="roadmap-grid">
+            <article class="roadmap-card">
+              <div class="roadmap-status">Active now</div>
+              <h3>About, research, publications, and articles</h3>
+              <p>
+                These sections are the current foundation: scientific context,
+                research themes, publication history, and long-form writing.
+              </p>
+            </article>
+
+            <article class="roadmap-card">
+              <div class="roadmap-status roadmap-status-soon">Planned next</div>
+              <h3>Project pages and software archive</h3>
+              <p>
+                Dedicated pages for datasets, tools, and reproducible workflows
+                will plug into the current navigation without changing the visual language.
+              </p>
+            </article>
+
+            <article class="roadmap-card">
+              <div class="roadmap-status roadmap-status-soon">Planned later</div>
+              <h3>Photography and field notes</h3>
+              <p>
+                Future pages can sit alongside the research archive while still
+                feeling like part of one personal site.
+              </p>
+            </article>
           </div>
         </div>
       </section>
@@ -227,14 +297,17 @@
             <div>
               <h2>Let’s connect</h2>
               <p class="muted">
-                For collaborations, datasets, or tools — send a note.
+                For collaborations, talks, or questions about data products,
+                use the About page as the central contact hub.
               </p>
             </div>
 
             <div class="contact-actions">
-              <a class="btn primary" href="mailto:YOUR_EMAIL">Email me</a>
-              <a class="btn" href="cv.html">CV</a>
-              <a class="btn ghost" href="repositories.html">Code</a>
+              <a class="btn primary" href="aboutme.html#tab=connect"
+                >Open About</a
+              >
+              <a class="btn" href="articles.html">Read Articles</a>
+              <a class="btn ghost" href="publications.html">View Publications</a>
             </div>
           </div>
         </div>

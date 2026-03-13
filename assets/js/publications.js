@@ -1,12 +1,18 @@
-/* publications.js — Year filter + tabs + ADS-style JSON + "et al. (year)" + "+YourName" if not in first 3 */
 (() => {
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
   const YOUR_NAME = "Bibhuti Kumar Jha";
+  const YOUR_NAME_VARIANTS = new Set([
+    "bibhuti kumar jha",
+    "bibhuti jha",
+    "jha, bibhuti kumar",
+    "jha, bibhuti",
+  ]);
 
   let CURRENT_ITEMS = [];
   let CURRENT_YEAR = "all";
+  let CURRENT_KIND = "publication";
 
   function keyFromHash() {
     const h = (location.hash || "").replace("#", "").trim();
@@ -59,71 +65,48 @@
     return map[k] || 0;
   }
 
-  function pubKey(it) {
+  function itemKey(it) {
     const y = Number(it.year) || 0;
     const mo = monthRank(it.month);
-    return y * 100 + mo; // YYYYMM-ish
+    return y * 100 + mo;
   }
 
-  // --- Authors: A, B, C et al. (YEAR) +YourName (if not in first 3) ---
   function formatAuthors(authorsArr, year) {
     if (!Array.isArray(authorsArr) || authorsArr.length === 0) return "";
 
     const authors = authorsArr
       .map((a) => String(a || "").trim())
+      .map((author) =>
+        YOUR_NAME_VARIANTS.has(author.toLowerCase()) ? YOUR_NAME : author,
+      )
       .filter(Boolean);
 
     if (!authors.length) return "";
 
     const firstThree = authors.slice(0, 3);
     const more = authors.length > 3;
-
-    const youInList = authors.some(
-      (a) => a.toLowerCase() === YOUR_NAME.toLowerCase(),
-    );
-    const youInFirstThree = firstThree.some(
-      (a) => a.toLowerCase() === YOUR_NAME.toLowerCase(),
-    );
+    const youInList = authors.some((a) => a.toLowerCase() === YOUR_NAME.toLowerCase());
+    const youInFirstThree = firstThree.some((a) => a.toLowerCase() === YOUR_NAME.toLowerCase());
 
     let s = firstThree.map((a) => escapeHtml(a)).join(", ");
-
     if (more) s += " et al.";
     if (year) s += ` (${escapeHtml(year)})`;
+    if (youInList && !youInFirstThree) s += ` +${escapeHtml(YOUR_NAME)}`;
 
-    // If you are not in the first three but you exist in the author list:
-    if (youInList && !youInFirstThree) {
-      s += ` +${escapeHtml(YOUR_NAME)}`;
-    }
-
-    // Bold your name wherever it appears
     const needle = YOUR_NAME.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    const re = new RegExp(needle, "gi");
-    s = s.replace(
-      re,
+    return s.replace(
+      new RegExp(needle, "gi"),
       `<span class="author-highlight">${escapeHtml(YOUR_NAME)}</span>`,
     );
-
-    return s;
   }
 
-  // --- Venue: full name + volume + pages (no abbreviation) ---
   function formatVenue(it) {
-    // Same style as latest_publication.js: "Journal • Vol. X • No. Y • pp. Z • YEAR"
     const parts = [];
-
-    // Prefer full name
     if (it.journal) parts.push(it.journal);
     else if (it.venue) parts.push(it.venue);
     else if (it.venue_short) parts.push(it.venue_short);
-
-    // Your JSON uses "issue" not "number" (support both)
     if (it.volume) parts.push(`Vol. ${it.volume}`);
-
     if (it.pages) parts.push(`pp. ${it.pages}`);
-
-    // const y = it.year ? String(it.year) : "";
-    // if (y) parts.push(y);
-
     return parts.filter(Boolean).join(" • ");
   }
 
@@ -134,7 +117,8 @@
       <a class="pub-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">
         <i class="${escapeHtml(iconClass)}" aria-hidden="true"></i>
         ${escapeHtml(label)}
-      </a>`;
+      </a>
+    `;
   }
 
   function titleHTML(it) {
@@ -146,23 +130,23 @@
 
   function setError(show, msg = "") {
     const box = $("#pubError");
-    const m = $("#pubErrorMsg");
-    if (!box || !m) return;
+    const text = $("#pubErrorMsg");
+    if (!box || !text) return;
     box.hidden = !show;
-    m.textContent = msg;
+    text.textContent = msg;
   }
 
   function setHeaderFromTab(tabBtn) {
-    const t = $("#pubHeaderTitle");
-    const s = $("#pubHeaderSub");
-    if (t) t.textContent = tabBtn?.dataset?.title || "Publications";
-    if (s) s.textContent = tabBtn?.dataset?.sub || "";
+    const title = $("#pubHeaderTitle");
+    const sub = $("#pubHeaderSub");
+    if (title) title.textContent = tabBtn?.dataset?.title || "Archive";
+    if (sub) sub.textContent = tabBtn?.dataset?.sub || "";
   }
 
-  // Build year dropdown based on CURRENT_ITEMS; preserve selection if possible.
   function buildYearDropdown(items) {
+    const wrap = $(".pub-controls-left");
     const sel = $("#pubYear");
-    if (!sel) return;
+    if (!sel || !wrap) return;
 
     const years = [
       ...new Set(
@@ -172,14 +156,12 @@
       ),
     ].sort((a, b) => b - a);
 
-    const opts = [
+    wrap.hidden = years.length === 0;
+    sel.innerHTML = [
       `<option value="all">All Years</option>`,
       ...years.map((y) => `<option value="${y}">${y}</option>`),
-    ];
+    ].join("");
 
-    sel.innerHTML = opts.join("");
-
-    // Keep current year if it exists in this tab; otherwise reset to all.
     const wanted = String(CURRENT_YEAR);
     const exists = wanted === "all" || years.some((y) => String(y) === wanted);
     CURRENT_YEAR = exists ? wanted : "all";
@@ -191,17 +173,116 @@
     return items.filter((x) => String(x.year) === String(CURRENT_YEAR));
   }
 
+  function renderPublicationItem(it) {
+    const authorsLine = formatAuthors(it.authors, it.year);
+    const venueLine = formatVenue(it);
+    const links = [
+      iconLinkPill(it.ads, "ADS", "fa-solid fa-magnifying-glass"),
+      iconLinkPill(doiUrl(it.doi), "DOI", "fa-solid fa-link"),
+      iconLinkPill(arxivUrl(it.arxiv), "arXiv", "fa-solid fa-file-lines"),
+      iconLinkPill(it.pdf, "PDF", "fa-solid fa-file-pdf"),
+      iconLinkPill(it.link, "Link", "fa-solid fa-arrow-up-right-from-square"),
+    ].filter(Boolean);
+
+    return `
+      <article class="glass-card pub-item">
+        <div class="pub-item-head">
+          <h3 class="pub-title">${titleHTML(it)}</h3>
+          <span class="pub-year">${escapeHtml([it.year, it.month].filter(Boolean).join(" "))}</span>
+        </div>
+        <div class="pub-meta">
+          ${authorsLine ? `<div class="pub-authors">${authorsLine}</div>` : ""}
+          ${venueLine ? `<div class="pub-venue">${venueLine}</div>` : ""}
+        </div>
+        ${links.length ? `<div class="pub-links">${links.join("")}</div>` : ""}
+      </article>
+    `;
+  }
+
+  function renderTalkItem(it) {
+    const metaLine = [it.event, it.institute, it.location]
+      .filter(Boolean)
+      .join(", ");
+
+    return `
+      <article class="glass-card pub-item pub-item-talk">
+        <div class="pub-item-head">
+          <h3 class="pub-title">${escapeHtml(it.title || "Untitled talk")}</h3>
+          <span class="pub-year">${escapeHtml([it.year, it.month].filter(Boolean).join(" "))}</span>
+        </div>
+        <div class="pub-meta">
+          ${it.kind ? `<div class="pub-chip-row"><span class="pub-chip">${escapeHtml(it.kind)}</span></div>` : ""}
+          ${metaLine ? `<div class="pub-talk-meta">${escapeHtml(metaLine)}</div>` : ""}
+          ${it.date_text ? `<div class="pub-talk-date">${escapeHtml(it.date_text)}</div>` : ""}
+        </div>
+      </article>
+    `;
+  }
+
+  function renderSoftwareItem(it) {
+    const links = [
+      iconLinkPill(it.repo, "Repo", "fa-brands fa-github"),
+      iconLinkPill(it.docs, "Docs", "fa-solid fa-book"),
+      iconLinkPill(it.link, "Link", "fa-solid fa-arrow-up-right-from-square"),
+    ].filter(Boolean);
+    const metaLine = [it.status, Array.isArray(it.stack) ? it.stack.join(" • ") : ""]
+      .filter(Boolean)
+      .join(" • ");
+
+    return `
+      <article class="glass-card pub-item">
+        <div class="pub-item-head">
+          <h3 class="pub-title">${escapeHtml(it.title || "Untitled software")}</h3>
+          <span class="pub-year">${escapeHtml([it.year, it.month].filter(Boolean).join(" "))}</span>
+        </div>
+        <div class="pub-meta">
+          ${it.summary ? `<div>${escapeHtml(it.summary)}</div>` : ""}
+          ${metaLine ? `<div>${escapeHtml(metaLine)}</div>` : ""}
+        </div>
+        ${links.length ? `<div class="pub-links">${links.join("")}</div>` : ""}
+      </article>
+    `;
+  }
+
+  function renderDataItem(it) {
+    const links = [iconLinkPill(it.link, "Open", "fa-solid fa-database")].filter(
+      Boolean,
+    );
+    const metaLine = [it.status, it.coverage, it.format]
+      .filter(Boolean)
+      .join(" • ");
+
+    return `
+      <article class="glass-card pub-item">
+        <div class="pub-item-head">
+          <h3 class="pub-title">${escapeHtml(it.title || "Untitled dataset")}</h3>
+          <span class="pub-year">${escapeHtml([it.year, it.month].filter(Boolean).join(" "))}</span>
+        </div>
+        <div class="pub-meta">
+          ${it.summary ? `<div>${escapeHtml(it.summary)}</div>` : ""}
+          ${metaLine ? `<div>${escapeHtml(metaLine)}</div>` : ""}
+        </div>
+        ${links.length ? `<div class="pub-links">${links.join("")}</div>` : ""}
+      </article>
+    `;
+  }
+
+  function renderItem(it) {
+    if (CURRENT_KIND === "talk") return renderTalkItem(it);
+    if (CURRENT_KIND === "software") return renderSoftwareItem(it);
+    if (CURRENT_KIND === "data") return renderDataItem(it);
+    return renderPublicationItem(it);
+  }
+
   function renderList() {
     const list = $("#pubList");
     const empty = $("#pubEmpty");
     const count = $("#pubCount");
     if (!list || !empty || !count) return;
 
-    const items = filteredItems(CURRENT_ITEMS);
-    // Always show newest first in the list
-    items.sort(
+    const items = filteredItems(CURRENT_ITEMS).sort(
       (a, b) =>
-        pubKey(b) - pubKey(a) ||
+        itemKey(b) - itemKey(a) ||
         String(a.title || "").localeCompare(String(b.title || "")),
     );
 
@@ -212,42 +293,9 @@
       empty.hidden = false;
       return;
     }
+
     empty.hidden = true;
-
-    list.innerHTML = items
-      .map((it) => {
-        const authorsLine = formatAuthors(it.authors, it.year);
-        const venueLine = formatVenue(it);
-
-        const links = [
-          iconLinkPill(it.ads, "ADS", "fa-solid fa-magnifying-glass"),
-          iconLinkPill(doiUrl(it.doi), "DOI", "fa-solid fa-link"),
-          iconLinkPill(arxivUrl(it.arxiv), "arXiv", "fa-solid fa-file-lines"),
-          iconLinkPill(it.pdf, "PDF", "fa-solid fa-file-pdf"),
-          iconLinkPill(
-            it.link,
-            "Link",
-            "fa-solid fa-arrow-up-right-from-square",
-          ),
-        ].filter(Boolean);
-
-        return `
-        <article class="glass-card pub-item">
-          <div class="pub-item-head">
-            <h3 class="pub-title">${titleHTML(it)}</h3>
-            <span class="pub-year">${escapeHtml([it.year, it.month].filter(Boolean).join(" "))}</span>
-          </div>
-
-          <div class="pub-meta">
-            ${authorsLine ? `<div class="pub-authors">${authorsLine}</div>` : ""}
-            ${venueLine ? `<div class="pub-venue">${venueLine}</div>` : ""}
-          </div>
-
-          ${links.length ? `<div class="pub-links">${links.join("")}</div>` : ""}
-        </article>
-      `;
-      })
-      .join("");
+    list.innerHTML = items.map(renderItem).join("");
   }
 
   async function loadJson(url) {
@@ -260,14 +308,15 @@
     const tabs = $$(".pub-tab");
     if (!tabs.length) return;
 
-    const activeTab = tabs.find((t) => t.dataset.tab === tabKey) || tabs[0];
+    const activeTab = tabs.find((tab) => tab.dataset.tab === tabKey) || tabs[0];
 
-    tabs.forEach((t) => {
-      const on = t === activeTab;
-      t.classList.toggle("active", on);
-      t.setAttribute("aria-selected", on ? "true" : "false");
+    tabs.forEach((tab) => {
+      const on = tab === activeTab;
+      tab.classList.toggle("active", on);
+      tab.setAttribute("aria-selected", on ? "true" : "false");
     });
 
+    CURRENT_KIND = activeTab.dataset.kind || "publication";
     setHeaderFromTab(activeTab);
     setError(false, "");
 
@@ -292,7 +341,6 @@
     const tabs = $$(".pub-tab");
     if (!tabs.length) return;
 
-    // Tab click
     tabs.forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.preventDefault();
@@ -300,7 +348,6 @@
       });
     });
 
-    // Year filter
     const yearSel = $("#pubYear");
     if (yearSel) {
       yearSel.addEventListener("change", () => {
@@ -309,17 +356,16 @@
       });
     }
 
-    // Initial tab
     const initial =
       keyFromHash() ||
-      tabs.find((t) => t.classList.contains("active"))?.dataset.tab ||
+      tabs.find((tab) => tab.classList.contains("active"))?.dataset.tab ||
       tabs[0].dataset.tab;
+
     activate(initial, { updateHash: !!location.hash });
 
-    // React to hash changes
     window.addEventListener("hashchange", () => {
-      const k = keyFromHash();
-      if (k) activate(k, { updateHash: false });
+      const key = keyFromHash();
+      if (key) activate(key, { updateHash: false });
     });
   }
 
