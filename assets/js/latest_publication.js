@@ -69,19 +69,36 @@
     return t;
   }
 
+  const YOUR_NAME = "Bibhuti Kumar Jha";
+  const YOUR_NAME_VARIANTS = new Set([
+    "bibhuti kumar jha",
+    "bibhuti jha",
+    "jha, bibhuti kumar",
+    "jha, bibhuti",
+  ]);
+
   function highlightAuthor(authors) {
-    // reuse your preferred highlight name
-    const name = "Bibhuti Kumar Jha";
-    const s = String(authors ?? "");
-    if (!s) return "";
-    // make commas readable if JSON had "A,B"
-    const spaced = s.replace(/,\s*/g, ", ");
-    // highlight exact match (case-insensitive)
-    const re = new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "ig");
-    return esc(spaced).replace(
-      re,
-      `<span class="author-highlight">${esc(name)}</span>`,
-    );
+    if (!authors) return "";
+    const list = Array.isArray(authors)
+      ? authors
+      : String(authors).split(/,\s*/);
+    const normalized = list
+      .map((a) => String(a).trim())
+      .map((a) => (YOUR_NAME_VARIANTS.has(a.toLowerCase()) ? YOUR_NAME : a))
+      .filter(Boolean);
+    if (!normalized.length) return "";
+    const needle = YOUR_NAME.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return normalized
+      .map((a) =>
+        a === YOUR_NAME
+          ? `<span class="author-highlight">${esc(a)}</span>`
+          : esc(a),
+      )
+      .join(", ")
+      .replace(
+        new RegExp(needle, "gi"),
+        `<span class="author-highlight">${esc(YOUR_NAME)}</span>`,
+      );
   }
 
   function itemHTML(p) {
