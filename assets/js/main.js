@@ -54,8 +54,21 @@ function year() {
   if (el) el.textContent = String(new Date().getFullYear());
 }
 
+function lastUpdated() {
+  const el = $("#lastUpdated");
+  if (!el) return;
+  const d = new Date(document.lastModified);
+  if (!d || isNaN(d.getTime())) return;
+  el.textContent = d.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   mobileNav();
   theme();
   year();
+  lastUpdated();
 });
