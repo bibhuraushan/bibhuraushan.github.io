@@ -1,0 +1,108 @@
+{
+  "_note": "My Updates on the Home page. Edit by hand, newest first. kind: Paper, Talk, Press, Award, Post, Software, Data. links: list of {label, url}.",
+  "items": [
+    {
+      "date": "2026-10",
+      "kind": "Paper",
+      "title": "Seeing the Sun's far side in flux transport models",
+      "summary": "New in ApJS: a probabilistic framework that brings helioseismic far-side active regions into the AFT model. Near-side-only runs miss 10-20% of the Sun's total magnetic flux.",
+      "links": [
+        {
+          "label": "DOI",
+          "url": "https://doi.org/10.3847/1538-4365/aea139"
+        },
+        {
+          "label": "ADS",
+          "url": "https://ui.adsabs.harvard.edu/abs/2026ApJS..286...79J/abstract"
+        },
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2609.00225"
+        }
+      ]
+    },
+    {
+      "date": "2026-02",
+      "kind": "Paper",
+      "title": "265 years of solar surface magnetism, rebuilt",
+      "summary": "New in ApJ: daily magnetic maps of the whole Sun for Solar Cycles 1 to 24 (1755 to 2020), made with our Synthetic Active Region Generator and the AFT model. The maps are public.",
+      "links": [
+        {
+          "label": "ADS",
+          "url": "https://ui.adsabs.harvard.edu/abs/2026ApJ...997..279J/abstract"
+        },
+        {
+          "label": "arXiv",
+          "url": "https://arxiv.org/abs/2511.19371"
+        }
+      ]
+    },
+    {
+      "date": "2026-01-20",
+      "kind": "Press",
+      "title": "Using 100-year-old data to help predict future solar cycle activity",
+      "summary": "SwRI press release on our historical reconstruction work, picked up by EurekAlert! and SpaceDaily.",
+      "links": [
+        {
+          "label": "SwRI",
+          "url": "https://www.swri.org/newsroom/press-releases/using-100-year-old-data-help-predict-future-solar-cycle-activity"
+        },
+        {
+          "label": "EurekAlert!",
+          "url": "https://www.eurekalert.org/news-releases/1113216"
+        },
+        {
+          "label": "SpaceDaily",
+          "url": "https://www.spacedaily.com/reports/Century_old_solar_records_refine_future_cycle_forecasts_999.html"
+        }
+      ]
+    },
+    {
+      "date": "2025-06",
+      "kind": "Paper",
+      "title": "A near-real-time model of the solar corona, in Science",
+      "summary": "Co-author on a data-assimilative coronal model that keeps itself current with new magnetic-field observations.",
+      "links": [
+        {
+          "label": "ADS",
+          "url": "https://ui.adsabs.harvard.edu/abs/2025Sci...388.1306D/abstract"
+        }
+      ]
+    },
+    {
+      "date": "2025-06",
+      "kind": "Software",
+      "title": "autotabpy released on Zenodo",
+      "summary": "The Python version of AutoTAB, our automatic tracker for bipolar magnetic regions.",
+      "links": [
+        {
+          "label": "Zenodo",
+          "url": "https://zenodo.org/records/15666357"
+        },
+        {
+          "label": "GitHub",
+          "url": "https://github.com/bibhuraushan/autotabpy"
+        }
+      ]
+    },
+    {
+      "date": "2024-10",
+      "kind": "Talk",
+      "title": "Invited talk at Space Climate 9, Nagoya",
+      "summary": "A window into the past: simulating the Sun's historical photospheric magnetic field with AFT.",
+      "links": []
+    },
+    {
+      "date": "2024-02",
+      "kind": "Paper",
+      "title": "When will the Sun's poles flip in Cycle 25?",
+      "summary": "Our ApJL forecast with the AFT model: north around August 2024, south around February 2025.",
+      "links": [
+        {
+          "label": "ADS",
+          "url": "https://ui.adsabs.harvard.edu/abs/2024ApJ...962L..15J/abstract"
+        }
+      ]
+    }
+  ]
+}

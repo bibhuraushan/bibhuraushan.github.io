@@ -1,0 +1,21 @@
+{
+  "updated": "2026-10-19T02:58:51+00:00",
+  "photo_of_the_month": null,
+  "albums": [
+    {
+      "id": "solar-sky",
+      "title": "Solar and Sky",
+      "photos": []
+    },
+    {
+      "id": "eclipses",
+      "title": "Eclipses",
+      "photos": []
+    },
+    {
+      "id": "landscapes-travel",
+      "title": "Landscapes and Travel",
+      "photos": []
+    }
+  ]
+}

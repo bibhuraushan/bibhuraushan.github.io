@@ -1,0 +1,83 @@
+{
+  "_note": "Edit by hand. Newest first. kind: Invited Talk, Conference Talk, Seminar, Colloquium, Lecture, Poster, Hands-on Session. slides/url are optional.",
+  "items": [
+    {
+      "date": "2024-10",
+      "date_text": "October 14-18, 2024",
+      "title": "Integrating Far-Side Active Regions into the Advective Flux Transport Model: Enhancing Solar Cycle Simulations",
+      "kind": "Conference Talk",
+      "event": "Solar cycle variability: From understanding to making prediction",
+      "host": "ARIES",
+      "location": "Nainital, India",
+      "slides": "",
+      "url": ""
+    },
+    {
+      "date": "2024-10",
+      "date_text": "October 1-4, 2024",
+      "title": "A Window into the Past: Simulating the Sun's Historical Photospheric Magnetic Field using AFT",
+      "kind": "Invited Talk",
+      "event": "Space Climate 9 Symposium and ISEE Symposium",
+      "host": "ISEE",
+      "location": "Nagoya, Japan",
+      "slides": "",
+      "url": ""
+    },
+    {
+      "date": "2023-12",
+      "date_text": "December 19-23, 2023",
+      "title": "Hands-on Session: Extracting Information from Long-Term Data",
+      "kind": "Hands-on Session",
+      "event": "Winter School on Concept in Solar Physics-2023",
+      "host": "NIT Delhi",
+      "location": "NIT Delhi, India",
+      "slides": "",
+      "url": ""
+    },
+    {
+      "date": "2023-12",
+      "date_text": "December 15, 2023",
+      "title": "Embracing the Reversal of Sun's Polar Field of Solar Cycle 25 Based on Advective Flux Transport Model",
+      "kind": "Seminar",
+      "event": "IIT-BHU seminar",
+      "host": "IIT-BHU",
+      "location": "Varanasi, India",
+      "slides": "",
+      "url": ""
+    },
+    {
+      "date": "2023-10",
+      "date_text": "October 16-20, 2023",
+      "title": "A Century of Solar Observations from Kodaikanal Solar Observatory: New Insights from Ca II K Data",
+      "kind": "Lecture",
+      "event": "Sun Climate Symposium",
+      "host": "Lowell Observatory",
+      "location": "Flagstaff, AZ",
+      "note": "Thomas Metcalf Lecturer",
+      "slides": "",
+      "url": ""
+    },
+    {
+      "date": "2023-10",
+      "date_text": "October 4, 2023",
+      "title": "Tilt of the Bipolar Active Regions: Beyond Joy's Law",
+      "kind": "Colloquium",
+      "event": "HAO Colloquium",
+      "host": "High Altitude Observatory",
+      "location": "Boulder, CO",
+      "slides": "",
+      "url": ""
+    },
+    {
+      "date": "2023-04",
+      "date_text": "April 11, 2023",
+      "title": "Theoretical Model Of An Intriguing Layer Of The Sun: The Near Surface Shear Layer",
+      "kind": "Seminar",
+      "event": "COFFIES Seminar",
+      "host": "COFFIES",
+      "location": "",
+      "slides": "",
+      "url": ""
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "_note": "Data and Tools page. Edit by hand. Fields are optional except title and summary.",
+  "datasets": [
+    {
+      "title": "A Unified Sunspot Group Dataset (RGO/SOON/NOAA), 1874 to present",
+      "summary": "Sunspot group records from the Royal Greenwich Observatory, SOON and NOAA combined into one consistent series.",
+      "coverage": "1874 to present",
+      "format": "Dataset",
+      "version": "Sep 2025",
+      "doi": "",
+      "url": "https://zenodo.org/records/17108109",
+      "host": "Zenodo"
+    },
+    {
+      "title": "Kodaikanal Solar Observatory white-light sunspot region masks",
+      "summary": "Sunspot region masks from more than a century of Kodaikanal white-light photographs.",
+      "coverage": "1904 to 2017",
+      "format": "Dataset",
+      "version": "Jun 2024",
+      "doi": "",
+      "url": "https://zenodo.org/records/11480481",
+      "host": "Zenodo"
+    },
+    {
+      "title": "Kodaikanal Ca II K series",
+      "summary": "Updated Ca II K data series from the Kodaikanal Solar Observatory archive, with the code used to build it.",
+      "coverage": "1904 to 2007",
+      "format": "Code and data",
+      "url": "https://github.com/bibhuraushan/KoSOCaK",
+      "host": "GitHub"
+    },
+    {
+      "title": "Kodaikanal digital archive series",
+      "summary": "Updated data series from the Kodaikanal Solar Observatory digital archive.",
+      "format": "Code and data",
+      "url": "https://github.com/bibhuraushan/KoSoDigitalArchive",
+      "host": "GitHub"
+    }
+  ],
+  "software": [
+    {
+      "title": "aftpy",
+      "summary": "Download, visualize and analyze Advective Flux Transport (AFT) maps stored as HDF5, with parallel downloads and conversion to FITS.",
+      "install": "pip install aftpy",
+      "repo": "https://github.com/bibhuraushan/aftpy",
+      "docs": "https://bibhuraushan.github.io/aftpy/",
+      "stack": ["Python", "HDF5", "FITS"]
+    },
+    {
+      "title": "autotabpy",
+      "summary": "Python version of AutoTAB, the Automatic Tracking Algorithm for Bipolar Magnetic Regions.",
+      "repo": "https://github.com/bibhuraushan/autotabpy",
+      "doi": "https://doi.org/10.5281/zenodo.15666357",
+      "stack": ["Python", "Tracking"]
+    },
+    {
+      "title": "HipFT",
+      "summary": "High-performance Flux Transport, the computational core of the Open-source Flux Transport (OFT) model. Contributor.",
+      "repo": "https://github.com/predsci/hipft",
+      "doi": "https://doi.org/10.5281/zenodo.14942123",
+      "stack": ["Fortran", "MPI / OpenMP", "GPU"]
+    },
+    {
+      "title": "helioget",
+      "summary": "Heliophysics data downloader that follows SunPy conventions and data access patterns.",
+      "repo": "https://github.com/bibhuraushan/helioget",
+      "stack": ["Python", "SunPy"]
+    }
+  ],
+  "notebooks": [
+    {
+      "title": "Working with AFT maps",
+      "summary": "The aftpy documentation walks through downloading AFT HDF5 maps, plotting them and converting them to FITS.",
+      "url": "https://bibhuraushan.github.io/aftpy/"
+    },
+    {
+      "title": "AI and ML notebooks",
+      "summary": "Jupyter notebooks for learning AI and machine learning.",
+      "url": "https://github.com/bibhuraushan/aiml"
+    },
+    {
+      "title": "Surya foundation model workshop template",
+      "summary": "Starter template from the 2026 Surya FM workshop.",
+      "url": "https://github.com/bibhuraushan/surya_workshop"
+    }
+  ]
+}

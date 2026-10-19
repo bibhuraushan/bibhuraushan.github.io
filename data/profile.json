@@ -1,0 +1,24 @@
+{
+  "name": "Bibhuti Kumar Jha",
+  "role": "Research Scientist",
+  "org": "Southwest Research Institute",
+  "division": "Solar System Science and Exploration Division",
+  "address": [
+    "Southwest Research Institute",
+    "1301 Walnut Street, Suite 400",
+    "Boulder, CO 80302, USA"
+  ],
+  "links": {
+    "email": {
+      "user": "bibhuti.jha",
+      "domain": "swri.org"
+    },
+    "github": "https://github.com/bibhuraushan",
+    "orcid": "https://orcid.org/0000-0003-3191-4625",
+    "scholar": "https://scholar.google.com/citations?user=ZSMz4DMAAAAJ&hl=en",
+    "ads": "https://ui.adsabs.harvard.edu/search/q=author%3A%22Jha%2C%20Bibhuti%20Kumar%22&sort=date%20desc%2C%20bibcode%20desc",
+    "linkedin": "https://www.linkedin.com/in/dr-bibhuti-kumar-jha-136a7432/"
+  },
+  "cv_pdf": "",
+  "_note": "links.email is stored as user + domain so the address never appears whole in the site's files; the page joins it only when a visitor clicks."
+}

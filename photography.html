@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photography · Bibhuti Kumar Jha</title>
+  <meta name="description" content="Photographs of the Sun and sky, eclipses, landscapes and travel by solar physicist Bibhuti Kumar Jha.">
+  <meta property="og:title" content="Photography · Bibhuti Kumar Jha">
+  <meta property="og:description" content="Photographs of the Sun and sky, eclipses, landscapes and travel by solar physicist Bibhuti Kumar Jha.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://suryascience.org/assets/img/profile.jpg">
+  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0e0c" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/gallery.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>Bibhuti Kumar Jha<small>Solar physics · SwRI Boulder</small></span></a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="research.html">Research</a>
+        <a href="data.html">Data and Tools</a>
+        <a href="photography.html" aria-current="page">Photography</a>
+      </nav>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch color theme"></button>
+      <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Photography</p>
+        <h1>The Sun and the sky, from the ground</h1>
+        <p class="lead">Where the hobby meets the science: the Sun through filters, eclipses, night skies and the places in between.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="tabs" data-tabs>
+          <div class="tablist" role="tablist" aria-label="Albums">
+            <button class="tab" type="button" data-tab="solar-sky">Solar and Sky</button>
+            <button class="tab" type="button" data-tab="eclipses">Eclipses</button>
+            <button class="tab" type="button" data-tab="landscapes-travel">Landscapes and Travel</button>
+            <button class="tab" type="button" data-tab="gear">Gear and Notes</button>
+          </div>
+
+          <section class="tabpanel" id="panel-solar-sky">
+            <p class="muted">Sunspots through a white-light filter, aurora, the Milky Way and other night skies.</p>
+            <div class="gallery" data-album="solar-sky"></div>
+          </section>
+          <section class="tabpanel" id="panel-eclipses" hidden>
+            <p class="muted">Eclipse trips and photo series, each with a short story.</p>
+            <div class="gallery" data-album="eclipses"></div>
+          </section>
+          <section class="tabpanel" id="panel-landscapes-travel" hidden>
+            <p class="muted">Colorado, India and the places conferences take me.</p>
+            <div class="gallery" data-album="landscapes-travel"></div>
+          </section>
+          <section class="tabpanel" id="panel-gear" hidden>
+            <div class="grid grid-3">
+              <div class="card"><h3>Camera and lenses</h3><p class="muted">What I shoot with, and why.</p></div>
+              <div class="card"><h3>Solar filters</h3><p class="muted">Safe white-light and narrowband solar viewing. Never point a camera or your eyes at the Sun without a certified solar filter.</p></div>
+              <div class="card"><h3>Processing</h3><p class="muted">From raw frames to the final image: stacking, sharpening and color.</p></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span data-year>2026</span> Bibhuti Kumar Jha · Last updated <span data-last-updated>2026</span></div>
+      <nav class="footer-links" data-footer-links aria-label="Profiles">
+        <a href="https://github.com/bibhuraushan" rel="me noopener" target="_blank">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

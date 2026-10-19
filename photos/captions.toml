@@ -1,0 +1,12 @@
+# Captions for photos in this folder. Keys are "<album folder>/<file name>".
+# Everything is optional; see tools/update_gallery.py for the full format.
+
+# [photo_of_the_month]
+# file = "solar-sky/sunspots-2026-10-03.jpg"
+# note = "One line on why this one."
+
+# ["solar-sky/sunspots-2026-10-03.jpg"]
+# title = "Sunspots through a white-light filter"
+# place = "Boulder, Colorado"
+# date = "2026-10-03"
+# caption = "A longer caption shown full screen."

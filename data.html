@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Data and Tools · Bibhuti Kumar Jha</title>
+  <meta name="description" content="Open solar datasets, Python and Fortran software, notebooks and interactive visualizations from Bibhuti Kumar Jha's research.">
+  <meta property="og:title" content="Data and Tools · Bibhuti Kumar Jha">
+  <meta property="og:description" content="Open solar datasets, Python and Fortran software, notebooks and interactive visualizations from Bibhuti Kumar Jha's research.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://suryascience.org/assets/img/profile.jpg">
+  <meta name="theme-color" content="#fbfaf8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f0e0c" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/sunspots.js" defer></script>
+  <script src="assets/js/datatools.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>Bibhuti Kumar Jha<small>Solar physics · SwRI Boulder</small></span></a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="research.html">Research</a>
+        <a href="data.html" aria-current="page">Data and Tools</a>
+        <a href="photography.html">Photography</a>
+      </nav>
+      <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch color theme"></button>
+      <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Data and Tools</p>
+        <h1>Open data and software, built for reuse</h1>
+        <p class="lead">Long-baseline solar datasets, the code that makes them, and notebooks to get started. Please cite the DOI when you use them.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="tabs" data-tabs>
+          <div class="tablist" role="tablist" aria-label="Data and Tools sections">
+            <button class="tab" type="button" data-tab="datasets">Datasets</button>
+            <button class="tab" type="button" data-tab="software">Software</button>
+            <button class="tab" type="button" data-tab="notebooks">Notebooks and Tutorials</button>
+            <button class="tab" type="button" data-tab="visualizations">Visualizations</button>
+          </div>
+
+          <section class="tabpanel" id="panel-datasets">
+            <div class="grid grid-2" data-tools="datasets"><div class="skeleton" style="height:200px"></div><div class="skeleton" style="height:200px"></div></div>
+            <p class="small muted" style="margin-top:1.25rem">The 265-year daily magnetic maps from our historical AFT reconstruction are described in <a href="https://ui.adsabs.harvard.edu/abs/2026ApJ...997..279J/abstract" target="_blank" rel="noopener">Jha et al. (2026, ApJ)</a>.</p>
+          </section>
+
+          <section class="tabpanel" id="panel-software" hidden>
+            <div class="grid grid-2" data-tools="software"></div>
+          </section>
+
+          <section class="tabpanel" id="panel-notebooks" hidden>
+            <div class="grid grid-3" data-tools="notebooks"></div>
+          </section>
+
+          <section class="tabpanel" id="panel-visualizations" hidden>
+            <div class="card">
+              <h3>The sunspot record, 1749 to today</h3>
+              <p class="muted small">Hover or tap to read any month. Data: SILSO international sunspot number via NOAA SWPC, loaded live, with SWPC's forecast for the rest of Cycle 25.</p>
+              <div class="legend" aria-hidden="true"><span><i class="obs"></i>Monthly</span><span><i class="main"></i>13-month smoothed</span><span><i class="pred"></i>NOAA forecast</span><span><i class="band"></i>Forecast range</span></div>
+              <div class="chart" data-viz-record style="touch-action:pan-y"><div class="skeleton" style="height:300px"></div></div>
+            </div>
+            <div class="grid grid-2" style="margin-top:1.25rem">
+              <div class="card"><p class="eyebrow">Coming next</p><h3>Interactive butterfly diagram</h3><p class="muted">Sunspot and plage latitudes over a century, from the Kodaikanal archive, zoomable by cycle.</p></div>
+              <div class="card"><p class="eyebrow">Coming next</p><h3>Synoptic map evolution</h3><p class="muted">Flux transport runs as movies: watch the polar field reverse.</p></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const el = document.querySelector("[data-viz-record]");
+        if (el) Sunspots.mount(el, { from: 1749, showPred: true, height: 300, ariaLabel: "Sunspot number since 1749 with NOAA forecast" });
+      });
+    </script>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span data-year>2026</span> Bibhuti Kumar Jha · Last updated <span data-last-updated>2026</span></div>
+      <nav class="footer-links" data-footer-links aria-label="Profiles">
+        <a href="https://github.com/bibhuraushan" rel="me noopener" target="_blank">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

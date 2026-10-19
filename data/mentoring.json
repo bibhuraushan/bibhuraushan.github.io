@@ -1,0 +1,23 @@
+{
+  "_note": "Mentoring tab on About Me. Edit by hand, one entry per person. Fields: name, mentorship (your role), current (their current position), url (optional link to their page).",
+  "items": [
+    {
+      "name": "Anu Sreedevi",
+      "mentorship": "PhD Mentor",
+      "current": "National Postdoctoral Fellow (NPDF), IIST, Thiruvananthapuram, Kerala",
+      "url": ""
+    },
+    {
+      "name": "Dibya Kirti Mishra",
+      "mentorship": "PhD Mentor",
+      "current": "Postdoctoral Fellow (PDF), IIA, Bengaluru, Karnataka",
+      "url": ""
+    },
+    {
+      "name": "Phoebe Mahlin",
+      "mentorship": "BSA REU Mentor",
+      "current": "Graduate Scholar, Boston University, USA",
+      "url": ""
+    }
+  ]
+}

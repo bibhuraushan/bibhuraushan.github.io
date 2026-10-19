@@ -1,377 +1,127 @@
-(() => {
-  const $ = (sel, root = document) => root.querySelector(sel);
-  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+/* Publications: reads data/publications.json (written by tools/update_publications.py)
+   and data/summaries.json (hand-written plain-language summaries). */
+(function () {
+  "use strict";
+  const esc = (s) => Site.esc(s);
+  const ME = /^(Bibhuti( Kumar| K\.)? Jha|B\. ?K\. Jha|Jha, B)/;
+  const CATS = {
+    refereed: "Refereed", preprint: "Preprint", proceedings: "Proceedings and abstracts",
+    software: "Software", thesis: "Thesis", data: "Data", other: "Other",
+  };
 
-  const YOUR_NAME = "Bibhuti Kumar Jha";
-  const YOUR_NAME_VARIANTS = new Set([
-    "bibhuti kumar jha",
-    "bibhuti jha",
-    "jha, bibhuti kumar",
-    "jha, bibhuti",
-  ]);
+  let loaded = null;
+  Site.pubs = () => (loaded ||= Promise.all([
+    Site.json("data/publications.json"),
+    Site.json("data/summaries.json").catch(() => ({})),
+  ]).then(([p, s]) => ({ ...p, items: p.items.map((it) => ({ ...it, summary: s[it.bibcode] || "" })) })));
 
-  let CURRENT_ITEMS = [];
-  let CURRENT_YEAR = "all";
-  let CURRENT_KIND = "publication";
-
-  function keyFromHash() {
-    const h = (location.hash || "").replace("#", "").trim();
-    if (!h) return "";
-    if (h.startsWith("tab=")) return h.slice(4).trim();
-    return h;
+  function authors(list, max = 6) {
+    const mark = (a) => (ME.test(a) ? `<span class="me">${esc(a)}</span>` : esc(a));
+    if (list.length <= max) return list.map(mark).join(", ");
+    const mine = list.findIndex((a) => ME.test(a));
+    const shown = list.slice(0, max - 1).map(mark);
+    if (mine >= max - 1) shown.push("…", mark(list[mine]));
+    return shown.join(", ") + ` <span class="muted">+${list.length - shown.filter((s) => s !== "…").length} more</span>`;
   }
 
-  function escapeHtml(s) {
-    return String(s ?? "")
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
+  function venue(it) {
+    const bits = [it.venue_short || it.venue];
+    if (it.volume) bits.push(it.volume);
+    if (it.pages && !String(it.pages).startsWith("arXiv")) bits.push(it.pages);
+    return `${esc(bits.filter(Boolean).join(", "))} · ${esc([it.month, it.year].filter(Boolean).join(" "))}`;
   }
 
-  function doiUrl(doi) {
-    if (!doi) return "";
-    const s = String(doi).trim();
-    if (s.startsWith("http://") || s.startsWith("https://")) return s;
-    return `https://doi.org/${s}`;
+  function links(it) {
+    const out = [];
+    if (it.pdf) out.push(`<a class="btn btn-sm" href="${esc(it.pdf)}" target="_blank" rel="noopener">${Site.icon("pdf")}PDF</a>`);
+    if (it.doi) out.push(`<a class="btn btn-sm" href="https://doi.org/${esc(it.doi)}" target="_blank" rel="noopener">DOI</a>`);
+    out.push(`<a class="btn btn-sm" href="${esc(it.ads)}" target="_blank" rel="noopener">ADS</a>`);
+    out.push(`<a class="btn btn-sm" href="${esc(it.bibtex)}" target="_blank" rel="noopener" title="BibTeX on NASA ADS">${Site.icon("quote")}BibTeX</a>`);
+    return `<div class="btn-row">${out.join("")}</div>`;
   }
 
-  function arxivUrl(arxivID) {
-    if (!arxivID) return "";
-    const s = String(arxivID).trim();
-    if (s.startsWith("http://") || s.startsWith("https://")) return s;
-    return `https://arxiv.org/abs/${s}`;
-  }
+  Site.pubHTML = (it, { headingLevel = 3 } = {}) => `
+    <article class="pub">
+      <h${headingLevel}><a href="${esc(it.ads)}" target="_blank" rel="noopener">${esc(it.title)}</a></h${headingLevel}>
+      <p class="authors">${authors(it.authors)}</p>
+      <p class="venue">${venue(it)}${it.category !== "refereed" ? ` · <span class="chip">${CATS[it.category] || it.category}</span>` : ""}${it.first_author ? ` · <span class="chip chip-accent">First author</span>` : ""}</p>
+      ${it.summary ? `<p class="summary"><b>In short:</b> ${esc(it.summary)}</p>` : ""}
+      ${links(it)}
+    </article>`;
 
-  function monthRank(m) {
-    const map = {
-      jan: 1,
-      feb: 2,
-      mar: 3,
-      apr: 4,
-      may: 5,
-      jun: 6,
-      jul: 7,
-      aug: 8,
-      sep: 9,
-      oct: 10,
-      nov: 11,
-      dec: 12,
-    };
-    const k = String(m || "")
-      .slice(0, 3)
-      .toLowerCase();
-    return map[k] || 0;
-  }
+  // ---------- Research > Publications tab ----------
+  async function initList(root) {
+    const data = await Site.pubs();
+    const items = data.items;
+    const state = { q: "", year: "", cat: "refereed", first: false };
+    const years = [...new Set(items.map((i) => i.year))].sort((a, b) => b - a);
+    const yearSel = root.querySelector("[data-year]");
+    yearSel.innerHTML = `<option value="">All years</option>` + years.map((y) => `<option>${y}</option>`).join("");
+    const counts = (k) => items.filter((i) => k === "all" || i.category === k || (k === "other" && !["refereed", "preprint", "proceedings"].includes(i.category))).length;
+    const pills = root.querySelector("[data-cats]");
+    const catList = [["refereed", "Refereed"], ["preprint", "Preprints"], ["proceedings", "Proceedings"], ["other", "Software and thesis"], ["all", "All"]];
+    pills.innerHTML = catList.filter(([k]) => counts(k)).map(([k, l]) => `<button type="button" data-cat="${k}" aria-pressed="${k === state.cat}">${l} <span class="muted">${counts(k)}</span></button>`).join("");
+    const list = root.querySelector("[data-list]");
+    const count = root.querySelector("[data-count]");
 
-  function itemKey(it) {
-    const y = Number(it.year) || 0;
-    const mo = monthRank(it.month);
-    return y * 100 + mo;
-  }
-
-  function formatAuthors(authorsArr, year) {
-    if (!Array.isArray(authorsArr) || authorsArr.length === 0) return "";
-
-    const authors = authorsArr
-      .map((a) => String(a || "").trim())
-      .map((author) =>
-        YOUR_NAME_VARIANTS.has(author.toLowerCase()) ? YOUR_NAME : author,
-      )
-      .filter(Boolean);
-
-    if (!authors.length) return "";
-
-    const firstThree = authors.slice(0, 3);
-    const more = authors.length > 3;
-    const youInList = authors.some((a) => a.toLowerCase() === YOUR_NAME.toLowerCase());
-    const youInFirstThree = firstThree.some((a) => a.toLowerCase() === YOUR_NAME.toLowerCase());
-
-    let s = firstThree.map((a) => escapeHtml(a)).join(", ");
-    if (more) s += " et al.";
-    if (year) s += ` (${escapeHtml(year)})`;
-    if (youInList && !youInFirstThree) s += ` +${escapeHtml(YOUR_NAME)}`;
-
-    const needle = YOUR_NAME.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-    return s.replace(
-      new RegExp(needle, "gi"),
-      `<span class="author-highlight">${escapeHtml(YOUR_NAME)}</span>`,
-    );
-  }
-
-  function formatVenue(it) {
-    const parts = [];
-    if (it.journal) parts.push(it.journal);
-    else if (it.venue) parts.push(it.venue);
-    else if (it.venue_short) parts.push(it.venue_short);
-    if (it.volume) parts.push(`Vol. ${it.volume}`);
-    if (it.pages) parts.push(`pp. ${it.pages}`);
-    return parts.filter(Boolean).join(" • ");
-  }
-
-  function iconLinkPill(href, label, iconClass) {
-    const url = String(href || "").trim();
-    if (!url) return "";
-    return `
-      <a class="pub-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">
-        <i class="${escapeHtml(iconClass)}" aria-hidden="true"></i>
-        ${escapeHtml(label)}
-      </a>
-    `;
-  }
-
-  function titleHTML(it) {
-    const title = escapeHtml(it.title || "Untitled");
-    const url = it.link || it.ads || "";
-    if (!url) return title;
-    return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${title}</a>`;
-  }
-
-  function setError(show, msg = "") {
-    const box = $("#pubError");
-    const text = $("#pubErrorMsg");
-    if (!box || !text) return;
-    box.hidden = !show;
-    text.textContent = msg;
-  }
-
-  function setHeaderFromTab(tabBtn) {
-    const title = $("#pubHeaderTitle");
-    const sub = $("#pubHeaderSub");
-    if (title) title.textContent = tabBtn?.dataset?.title || "Archive";
-    if (sub) sub.textContent = tabBtn?.dataset?.sub || "";
-  }
-
-  function buildYearDropdown(items) {
-    const wrap = $(".pub-controls-left");
-    const sel = $("#pubYear");
-    if (!sel || !wrap) return;
-
-    const years = [
-      ...new Set(
-        (items || [])
-          .map((x) => Number(x.year))
-          .filter((y) => Number.isFinite(y) && y > 0),
-      ),
-    ].sort((a, b) => b - a);
-
-    wrap.hidden = years.length === 0;
-    sel.innerHTML = [
-      `<option value="all">All Years</option>`,
-      ...years.map((y) => `<option value="${y}">${y}</option>`),
-    ].join("");
-
-    const wanted = String(CURRENT_YEAR);
-    const exists = wanted === "all" || years.some((y) => String(y) === wanted);
-    CURRENT_YEAR = exists ? wanted : "all";
-    sel.value = CURRENT_YEAR;
-  }
-
-  function filteredItems(items) {
-    if (CURRENT_YEAR === "all") return items.slice();
-    return items.filter((x) => String(x.year) === String(CURRENT_YEAR));
-  }
-
-  function renderPublicationItem(it) {
-    const authorsLine = formatAuthors(it.authors, it.year);
-    const venueLine = formatVenue(it);
-    const links = [
-      iconLinkPill(it.ads, "ADS", "fa-solid fa-magnifying-glass"),
-      iconLinkPill(doiUrl(it.doi), "DOI", "fa-solid fa-link"),
-      iconLinkPill(arxivUrl(it.arxiv), "arXiv", "fa-solid fa-file-lines"),
-      iconLinkPill(it.pdf, "PDF", "fa-solid fa-file-pdf"),
-      iconLinkPill(it.link, "Link", "fa-solid fa-arrow-up-right-from-square"),
-    ].filter(Boolean);
-
-    return `
-      <article class="glass-card pub-item">
-        <div class="pub-item-head">
-          <h3 class="pub-title">${titleHTML(it)}</h3>
-          <span class="pub-year">${escapeHtml([it.year, it.month].filter(Boolean).join(" "))}</span>
-        </div>
-        <div class="pub-meta">
-          ${authorsLine ? `<div class="pub-authors">${authorsLine}</div>` : ""}
-          ${venueLine ? `<div class="pub-venue">${venueLine}</div>` : ""}
-        </div>
-        ${links.length ? `<div class="pub-links">${links.join("")}</div>` : ""}
-      </article>
-    `;
-  }
-
-  function renderTalkItem(it) {
-    const metaLine = [it.event, it.institute, it.location]
-      .filter(Boolean)
-      .join(", ");
-
-    return `
-      <article class="glass-card pub-item pub-item-talk">
-        <div class="pub-item-head">
-          <h3 class="pub-title">${escapeHtml(it.title || "Untitled talk")}</h3>
-          <span class="pub-year">${escapeHtml([it.year, it.month].filter(Boolean).join(" "))}</span>
-        </div>
-        <div class="pub-meta">
-          ${it.kind ? `<div class="pub-chip-row"><span class="pub-chip">${escapeHtml(it.kind)}</span></div>` : ""}
-          ${metaLine ? `<div class="pub-talk-meta">${escapeHtml(metaLine)}</div>` : ""}
-          ${it.date_text ? `<div class="pub-talk-date">${escapeHtml(it.date_text)}</div>` : ""}
-        </div>
-      </article>
-    `;
-  }
-
-  function renderSoftwareItem(it) {
-    const links = [
-      iconLinkPill(it.repo, "Repo", "fa-brands fa-github"),
-      iconLinkPill(it.docs, "Docs", "fa-solid fa-book"),
-      iconLinkPill(it.link, "Link", "fa-solid fa-arrow-up-right-from-square"),
-    ].filter(Boolean);
-    const metaLine = [it.status, Array.isArray(it.stack) ? it.stack.join(" • ") : ""]
-      .filter(Boolean)
-      .join(" • ");
-
-    return `
-      <article class="glass-card pub-item">
-        <div class="pub-item-head">
-          <h3 class="pub-title">${escapeHtml(it.title || "Untitled software")}</h3>
-          <span class="pub-year">${escapeHtml([it.year, it.month].filter(Boolean).join(" "))}</span>
-        </div>
-        <div class="pub-meta">
-          ${it.summary ? `<div>${escapeHtml(it.summary)}</div>` : ""}
-          ${metaLine ? `<div>${escapeHtml(metaLine)}</div>` : ""}
-        </div>
-        ${links.length ? `<div class="pub-links">${links.join("")}</div>` : ""}
-      </article>
-    `;
-  }
-
-  function renderDataItem(it) {
-    const links = [iconLinkPill(it.link, "Open", "fa-solid fa-database")].filter(
-      Boolean,
-    );
-    const metaLine = [it.status, it.coverage, it.format]
-      .filter(Boolean)
-      .join(" • ");
-
-    return `
-      <article class="glass-card pub-item">
-        <div class="pub-item-head">
-          <h3 class="pub-title">${escapeHtml(it.title || "Untitled dataset")}</h3>
-          <span class="pub-year">${escapeHtml([it.year, it.month].filter(Boolean).join(" "))}</span>
-        </div>
-        <div class="pub-meta">
-          ${it.summary ? `<div>${escapeHtml(it.summary)}</div>` : ""}
-          ${metaLine ? `<div>${escapeHtml(metaLine)}</div>` : ""}
-        </div>
-        ${links.length ? `<div class="pub-links">${links.join("")}</div>` : ""}
-      </article>
-    `;
-  }
-
-  function renderItem(it) {
-    if (CURRENT_KIND === "talk") return renderTalkItem(it);
-    if (CURRENT_KIND === "software") return renderSoftwareItem(it);
-    if (CURRENT_KIND === "data") return renderDataItem(it);
-    return renderPublicationItem(it);
-  }
-
-  function renderList() {
-    const list = $("#pubList");
-    const empty = $("#pubEmpty");
-    const count = $("#pubCount");
-    if (!list || !empty || !count) return;
-
-    const items = filteredItems(CURRENT_ITEMS).sort(
-      (a, b) =>
-        itemKey(b) - itemKey(a) ||
-        String(a.title || "").localeCompare(String(b.title || "")),
-    );
-
-    count.textContent = String(items.length);
-
-    if (!items.length) {
-      list.innerHTML = "";
-      empty.hidden = false;
-      return;
+    function apply() {
+      const q = state.q.toLowerCase();
+      const shown = items.filter((i) =>
+        (state.cat === "all" || i.category === state.cat || (state.cat === "other" && !["refereed", "preprint", "proceedings"].includes(i.category))) &&
+        (!state.year || String(i.year) === state.year) &&
+        (!state.first || i.first_author) &&
+        (!q || (i.title + " " + i.authors.join(" ") + " " + i.venue + " " + i.summary).toLowerCase().includes(q)));
+      count.textContent = `${shown.length} ${shown.length === 1 ? "paper" : "papers"}`;
+      if (!shown.length) { list.innerHTML = `<div class="empty">No papers match these filters.</div>`; return; }
+      let html = "", yr = null;
+      for (const it of shown) {
+        if (it.year !== yr) { yr = it.year; html += `<h3 class="pub-year">${yr}</h3>`; }
+        html += Site.pubHTML(it, { headingLevel: 4 });
+      }
+      list.innerHTML = html;
     }
-
-    empty.hidden = true;
-    list.innerHTML = items.map(renderItem).join("");
-  }
-
-  async function loadJson(url) {
-    const res = await fetch(url, { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status} while fetching ${url}`);
-    return res.json();
-  }
-
-  async function activate(tabKey, { updateHash = true } = {}) {
-    const tabs = $$(".pub-tab");
-    if (!tabs.length) return;
-
-    const activeTab = tabs.find((tab) => tab.dataset.tab === tabKey) || tabs[0];
-
-    tabs.forEach((tab) => {
-      const on = tab === activeTab;
-      tab.classList.toggle("active", on);
-      tab.setAttribute("aria-selected", on ? "true" : "false");
+    pills.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-cat]"); if (!b) return;
+      state.cat = b.dataset.cat;
+      pills.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      apply();
     });
+    yearSel.addEventListener("change", () => { state.year = yearSel.value; apply(); });
+    root.querySelector("[data-first]").addEventListener("change", (e) => { state.first = e.target.checked; apply(); });
+    root.querySelector("[data-q]").addEventListener("input", (e) => { state.q = e.target.value.trim(); apply(); });
+    const upd = root.querySelector("[data-pubs-updated]");
+    if (upd && data.updated) upd.textContent = Site.fmtDate(data.updated.slice(0, 10));
+    apply();
+  }
 
-    CURRENT_KIND = activeTab.dataset.kind || "publication";
-    setHeaderFromTab(activeTab);
-    setError(false, "");
+  // ---------- small lists of papers by bibcode (project cards) ----------
+  async function initPaperLists() {
+    const lists = document.querySelectorAll("[data-papers]");
+    if (!lists.length) return;
+    const { items } = await Site.pubs();
+    const by = Object.fromEntries(items.map((i) => [i.bibcode, i]));
+    lists.forEach((ul) => {
+      ul.innerHTML = ul.dataset.papers.split(",").map((b) => by[b.trim()]).filter(Boolean)
+        .map((it) => `<li><a href="${esc(it.ads)}" target="_blank" rel="noopener">${esc(it.title)}</a> <span class="muted small">${esc(it.venue_short)} ${it.year}</span></li>`).join("");
+    });
+  }
 
+
+  // ---------- Home: latest paper ----------
+  async function initLatest() {
+    const el = document.querySelector("[data-latest-pub]");
+    if (!el) return;
     try {
-      const data = await loadJson(activeTab.dataset.json);
-      CURRENT_ITEMS = Array.isArray(data) ? data : [];
-      buildYearDropdown(CURRENT_ITEMS);
-      renderList();
-    } catch (err) {
-      CURRENT_ITEMS = [];
-      buildYearDropdown(CURRENT_ITEMS);
-      renderList();
-      setError(true, String(err?.message || err));
-    }
-
-    if (updateHash) {
-      history.replaceState(null, "", `#tab=${activeTab.dataset.tab}`);
-    }
+      const { items } = await Site.pubs();
+      const it = items.find((i) => i.category === "refereed") || items[0];
+      el.innerHTML = Site.pubHTML(it).replace('class="pub"', 'class="pub" style="padding:0;border:0"');
+    } catch { el.closest("section")?.remove(); }
   }
 
-  function init() {
-    const tabs = $$(".pub-tab");
-    if (!tabs.length) return;
-
-    tabs.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        activate(btn.dataset.tab, { updateHash: true });
-      });
-    });
-
-    const yearSel = $("#pubYear");
-    if (yearSel) {
-      yearSel.addEventListener("change", () => {
-        CURRENT_YEAR = yearSel.value || "all";
-        renderList();
-      });
-    }
-
-    const initial =
-      keyFromHash() ||
-      tabs.find((tab) => tab.classList.contains("active"))?.dataset.tab ||
-      tabs[0].dataset.tab;
-
-    activate(initial, { updateHash: !!location.hash });
-
-    window.addEventListener("hashchange", () => {
-      const key = keyFromHash();
-      if (key) activate(key, { updateHash: false });
-    });
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  document.addEventListener("DOMContentLoaded", () => {
+    const root = document.querySelector("[data-publications]");
+    if (root) initList(root).catch(() => (root.querySelector("[data-list]").innerHTML = `<div class="empty">The publication list could not be loaded. <a href="https://ui.adsabs.harvard.edu/search/q=author%3A%22Jha%2C%20Bibhuti%20Kumar%22" target="_blank" rel="noopener">See it on NASA ADS</a>.</div>`));
+    initPaperLists().catch(() => {});
+    initLatest();
+  });
 })();
